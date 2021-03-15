@@ -26,7 +26,7 @@ void MainWindow::on_ajouter_clicked()
     QString date=ui->date->text();
     QString sexe=ui->sexe->text();
     QString activite=ui->activite->text();
-    Citoyen c(numCin,nom,prenom,date,sexe,activite,nbrPts);
+    //Citoyen c(numCin,nom,prenom,date,sexe,activite,nbrPts);
 }
 
 void MainWindow::on_supprimer_clicked()
