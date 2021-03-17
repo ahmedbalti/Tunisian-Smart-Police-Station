@@ -3,6 +3,7 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
+#include"recompense.h"
 Citoyen::Citoyen()
 {
 nbrPts=0;
@@ -133,6 +134,13 @@ QSqlQueryModel * Citoyen::tri()
         return model;
 }
 
+QSqlQueryModel * Citoyen::affecter_recompense()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
 
+    model->setQuery("select numRec from recompense ");
+
+        return model;
+}
 
 

@@ -31,7 +31,7 @@ public:
     void setnbrPts(int);
     void setnumRec(int);
 QSqlQueryModel * chercher(QString);
-
+QSqlQueryModel * affecter_recompense();
 QSqlQueryModel * tri();
  private:
     int nbrPts,numCin,numRec;
