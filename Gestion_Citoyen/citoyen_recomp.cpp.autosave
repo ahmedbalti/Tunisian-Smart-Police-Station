@@ -1,0 +1,49 @@
+#include "citoyen_recomp.h"
+
+citoyen_recomp::citoyen_recomp()
+{
+
+}
+
+void gesempcong::on_ajoutemp_clicked()
+{
+    QString matemp=ui->matricule ->text();
+    ui->matricule->setMaxLength(5);
+    QString congeemp="";
+    QString dateemb=ui->dateemb->text();
+     ui->dateemb->setMaxLength(20);
+    QString nom=ui->nom->text();
+     ui->nom->setMaxLength(15);
+    QString prenom=ui->prenom->text();
+    ui->prenom->setMaxLength(15);
+    QString fonction=ui->fonction->text();
+
+    float salaire=ui->salaire->text().toFloat();
+
+
+
+
+
+
+    Employes E(matemp,congeemp,dateemb,nom,prenom,fonction,salaire);
+    if(E.ajouter()) {
+        QMessageBox::information(nullptr, QObject::tr("BRAVO!!!"),
+                    QObject::tr("Ajout effectuer avec succés.\n" ), QMessageBox::Cancel);
+
+                ui->matricule->setText("");
+
+
+                ui->dateemb->setText("");
+                ui->nom->setText("");
+                ui->prenom->setText("");
+                ui->fonction->setText("");
+                ui->salaire->setText("");
+
+
+}else{
+        QMessageBox::information(nullptr, QObject::tr("ECHEC!!!"),
+                    QObject::tr("employé existe déja.\n"), QMessageBox::Cancel);
+    }
+
+}
+
