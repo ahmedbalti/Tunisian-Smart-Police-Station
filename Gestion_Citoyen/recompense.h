@@ -10,7 +10,7 @@ private:
     int nbrPts;
     int nbrEx;
 
-    QString nomRec,desc;
+    QString nomRec,description;
 
 
 public:
@@ -21,19 +21,20 @@ public:
     int getnbrPts();
     int getnbrEx();
     QString getnomRec();
-    QString getdesc();
+    QString getdescription();
 
     void setnumRec(int);
     void setnbrPts(int);
     void setnbrEx(int);
     void setnomRec(QString);
-    void setdesc(QString);
+    void setdescription(QString);
     bool ajouter();
     bool supprimer(int);
     QSqlQueryModel* afficher();
     bool modifier(int);
     QSqlQueryModel * chercher(QString);
     QSqlQueryModel * tri();
+    bool mise_a_jour_nb_exp(int);
 };
 
 #endif // RECOMPENSE_H

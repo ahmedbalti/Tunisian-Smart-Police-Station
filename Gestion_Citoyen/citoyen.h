@@ -12,7 +12,7 @@ public:
     int getnumCin();
     QString getnom();
     QString getprenom();
-    QString getdate();
+    QString getdaten();
     QString getsexe();
     QString getactivite();
     int getnbrPts();
@@ -26,17 +26,20 @@ public:
     void setnumCin(int);
     void setnom(QString);
     void setprenom(QString);
-    void setdate(QString);
+    void setdaten(QString);
     void setsexe(QString);
     void setactivite(QString);
     void setnbrPts(int);
     void setnumRec(int);
+    int test(int);
 QSqlQueryModel * chercher(QString);
 QSqlQueryModel * affecter_recompense();
 QSqlQueryModel * tri();
+bool mise_a_jour_nbr_points(int);
+//bool affecter(QString);
  private:
     int nbrPts,numCin,numRec;
-    QString nom,prenom,date,sexe,activite;
+    QString nom,prenom,daten,sexe,activite;
 };
 
 #endif // CITOYEN_H

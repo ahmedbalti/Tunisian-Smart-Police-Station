@@ -40,7 +40,7 @@
 font: 14pt &quot;Rockwell&quot;;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ongletCitoyen">
      <attribute name="title">
@@ -183,7 +183,7 @@ font: 14pt &quot;Rockwell&quot;;</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ajouterCitoyen_2">
        <attribute name="title">
@@ -482,21 +482,31 @@ color:rgb(103, 161, 255);
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="date">
-         <property name="geometry">
-          <rect>
-           <x>190</x>
-           <y>300</y>
-           <width>113</width>
-           <height>22</height>
-          </rect>
-         </property>
-        </widget>
         <widget class="QLineEdit" name="sexe">
          <property name="geometry">
           <rect>
            <x>630</x>
            <y>70</y>
+           <width>113</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QDateEdit" name="datedate">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>300</y>
+           <width>110</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_3">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>340</y>
            <width>113</width>
            <height>22</height>
           </rect>
@@ -573,12 +583,12 @@ color:rgb(103, 161, 255);
          <pixmap>../imagesQT/2affiches.jpg</pixmap>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_rechercheCitoyen">
+       <widget class="QPushButton" name="rechercher">
         <property name="geometry">
          <rect>
-          <x>110</x>
+          <x>30</x>
           <y>10</y>
-          <width>541</width>
+          <width>501</width>
           <height>41</height>
          </rect>
         </property>
@@ -2265,11 +2275,22 @@ color:rgb(103, 161, 255);
          <string/>
         </property>
        </widget>
+       <widget class="QLineEdit" name="rechercheButton">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>20</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
        <zorder>label_32</zorder>
        <zorder>label_photo_8</zorder>
-       <zorder>pushButton_rechercheCitoyen</zorder>
+       <zorder>rechercher</zorder>
        <zorder>triCitoyen</zorder>
        <zorder>tableCitoyen</zorder>
+       <zorder>rechercheButton</zorder>
       </widget>
       <widget class="QWidget" name="modifierCitoyen">
        <attribute name="title">
@@ -2564,32 +2585,32 @@ color:rgb(12, 166, 97);</string>
           </rect>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_3">
-         <property name="geometry">
-          <rect>
-           <x>262</x>
-           <y>70</y>
-           <width>121</width>
-           <height>22</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="date_2">
-         <property name="geometry">
-          <rect>
-           <x>180</x>
-           <y>250</y>
-           <width>113</width>
-           <height>22</height>
-          </rect>
-         </property>
-        </widget>
         <widget class="QComboBox" name="comboBox_4">
          <property name="geometry">
           <rect>
            <x>600</x>
            <y>290</y>
            <width>111</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>70</y>
+           <width>113</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QDateEdit" name="dateEdit_2">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>260</y>
+           <width>110</width>
            <height>22</height>
           </rect>
          </property>
@@ -2704,13 +2725,13 @@ color:rgb(12, 166, 97);</string>
           <string>Supprimer</string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QLineEdit" name="lineEdit_2">
          <property name="geometry">
           <rect>
            <x>180</x>
            <y>140</y>
-           <width>121</width>
-           <height>31</height>
+           <width>113</width>
+           <height>22</height>
           </rect>
          </property>
         </widget>
@@ -2948,7 +2969,7 @@ color:rgb(0, 170, 255);</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ajouterRecompense">
        <attribute name="title">
@@ -3229,7 +3250,7 @@ color:rgb(103, 161, 255);
          <pixmap>../imagesQT/2affiches.jpg</pixmap>
         </property>
        </widget>
-       <widget class="QTableView" name="tableViewconges">
+       <widget class="QTableView" name="tableRecompense">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -3239,12 +3260,12 @@ color:rgb(103, 161, 255);
          </rect>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_rechercheRecompense">
+       <widget class="QPushButton" name="rech">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>70</x>
           <y>10</y>
-          <width>541</width>
+          <width>411</width>
           <height>41</height>
          </rect>
         </property>
@@ -4937,12 +4958,23 @@ color:rgb(103, 161, 255);
          <string/>
         </property>
        </widget>
+       <widget class="QLineEdit" name="rechercheButton_2">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>20</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
        <zorder>label_45</zorder>
        <zorder>label_photo_9</zorder>
        <zorder>label_44</zorder>
-       <zorder>tableViewconges</zorder>
-       <zorder>pushButton_rechercheRecompense</zorder>
+       <zorder>tableRecompense</zorder>
+       <zorder>rech</zorder>
        <zorder>triRecompense</zorder>
+       <zorder>rechercheButton_2</zorder>
       </widget>
       <widget class="QWidget" name="modifierRecompense">
        <attribute name="title">
