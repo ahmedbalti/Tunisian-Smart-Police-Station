@@ -40,7 +40,7 @@
 font: 14pt &quot;Rockwell&quot;;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="ongletCitoyen">
      <attribute name="title">
@@ -183,7 +183,7 @@ font: 14pt &quot;Rockwell&quot;;</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="ajouterCitoyen_2">
        <attribute name="title">
@@ -2969,7 +2969,7 @@ color:rgb(0, 170, 255);</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="ajouterRecompense">
        <attribute name="title">

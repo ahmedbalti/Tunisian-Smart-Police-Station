@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    ui->tableCitoyen->setModel(tmpcitoyen.afficher());
+     ui->tableRecompense->setModel(tmprecompense.afficher());
     ui->setupUi(this);
 }
 
@@ -29,6 +31,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ajouterCitoyen_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
     int numCin=ui->numCin ->text().toInt();
    ui->numCin->setMaxLength(8);
 
@@ -47,9 +54,6 @@ void MainWindow::on_ajouterCitoyen_clicked()
       ui->activite->setMaxLength(15);
       int nbrPts=ui->nbrPts ->text().toInt();
       int numRec=ui->numRec ->text().toInt();
-
-
-
 
 
 
@@ -85,6 +89,11 @@ void MainWindow::on_ajouterCitoyen_clicked()
 
 void MainWindow::on_Supprimer_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
     Citoyen c1;
     // c1.setnumCin(ui->comboBox_2->currentText().toInt());
      c1.setnumCin(ui->lineEdit_2->text().toInt());
@@ -107,6 +116,11 @@ void MainWindow::on_Supprimer_clicked()
 
 void MainWindow::on_modiferCitoyen_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
      int numCin=ui->lineEdit->text().toInt();
      QString nom=ui->nom_2->text();
      QString prenom=ui->prenom->text();
@@ -133,18 +147,33 @@ else
 
 void MainWindow::on_pushButton_rechercheCitoyen_clicked()
 {
-    QString recherche =ui->rechercher->text();
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
+    QString recherche =ui->rechercheButton->text();
     ui->tableCitoyen->setModel(tmpcitoyen.chercher(recherche));
 }
 
 
 void MainWindow::on_triCitoyen_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
      ui->tableCitoyen->setModel(tmpcitoyen.tri());
 }
 
 void MainWindow::on_ajouterRec_2_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
     int numRec=ui->numRec_3->text().toInt();
      QString nomRec=ui->type->text();
      ui->type->setMaxLength(15);
@@ -177,6 +206,11 @@ void MainWindow::on_ajouterRec_2_clicked()
 
 void MainWindow::on_modiferRecompense_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
     int numRec=ui->num_rec->currentText().toInt();
     // int numRec=ui->modifierRec->text().toInt();
      QString nomRec=ui->nom_3->text();
@@ -201,20 +235,35 @@ void MainWindow::on_modiferRecompense_clicked()
 
 void MainWindow::on_pushButton_rechercheRecompense_clicked()
 {
-    QString recherche =ui->rech->text();
-    ui->tableRecompense->setModel(tmprecompense.chercher(recherche));
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
 
+    QString recherche =ui->rechercheButton_2->text();
+    ui->tableRecompense->setModel(tmprecompense.chercher(recherche));
+ ui->tableRecompense->setModel(tmprecompense.afficher());
 
 }
 
 
 void MainWindow::on_triRecompense_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
       ui->tableRecompense->setModel(tmprecompense.tri());
 }
 
 void MainWindow::on_Supprimer_2_clicked()
 {
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setVolume(3000);
+           player->play();
+
     recompense r1;
    r1.setnumRec(ui->comboBoxempsup_2->currentText().toInt());
            // r1.setnumRec(ui->supp->text().toInt());
