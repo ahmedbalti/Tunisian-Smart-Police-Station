@@ -1,5 +1,5 @@
 QT       += core gui sql multimedia
-
+QT +=network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,17 +21,21 @@ SOURCES += \
     connection.cpp \
     main.cpp \
     mainwindow.cpp \
-    recompense.cpp
+    recompense.cpp \
+    smtp.cpp
 
 HEADERS += \
     citoyen.h \
     connection.h \
     mainwindow.h \
-    recompense.h
+    recompense.h \
+    smtp.h
 
 FORMS += \
     mainwindow.ui \
     ui_citoyen_recomp.ui
+
+TARGET = smtp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
