@@ -50,6 +50,13 @@ QSound *son;
     recompense tmprecompense;
     QMediaPlayer *mMediaPlayer;
 
+    QStringList files;
+   private slots:
+       void sendMail();
+       void mailSent(QString);
+       void browse();
+
+       void on_send_clicked();
 };
 
 #endif // MAINWINDOW_H
