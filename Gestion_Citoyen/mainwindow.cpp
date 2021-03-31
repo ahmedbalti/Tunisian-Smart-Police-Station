@@ -25,6 +25,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableCitoyen->setModel(tmpcitoyen.afficher());
      ui->tableRecompense->setModel(tmprecompense.afficher());
     ui->setupUi(this);
+    mMediaPlayer=new QMediaPlayer(this);
+    connect(mMediaPlayer,&QMediaPlayer::positionChanged,[&](qint64 pos){ui->progressBar->setValue(pos);});
+    connect(mMediaPlayer,&QMediaPlayer::durationChanged,[&](qint64 dur){ui->progressBar->setMaximum(dur);});
+
 }
 
 void MainWindow::browse()
@@ -329,4 +333,46 @@ void MainWindow::on_Supprimer_2_clicked()
 void MainWindow::on_send_clicked()
 {
 
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString filename=QFileDialog::getOpenFileName(this,"ouvrir");
+        if (filename.isEmpty()){return;}
+        mMediaPlayer->setMedia(QUrl::fromLocalFile(filename));
+      on_pushButton_2_clicked();
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+     mMediaPlayer->play();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    mMediaPlayer->pause();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    mMediaPlayer->stop();
+}
+
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    if(ui->pushButton_5->text()=="Muet"){
+        mMediaPlayer->setMuted(true);
+       ui->pushButton_5->setText("Unmuet");}
+       else{ mMediaPlayer->setMuted(false);
+           ui->pushButton_5->setText("Muet");}
+}
+
+
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+    //ui->progressBar->setValue(value);
+    mMediaPlayer->setVolume(value);
 }
