@@ -4,6 +4,13 @@
 #include <QMainWindow>
 #include "citoyen.h"
 #include "recompense.h"
+#include <QDialog>
+#include <QApplication>
+#include "login.h"
+#include "smtp.h"
+#include <QFileDialog>
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +25,9 @@ public:
     ~MainWindow();
 
 private slots:
+    void sendMail();
+    void mailSent(QString);
+    void browse();
     void on_ajouter_clicked();
 
     void on_supp_clicked();
@@ -46,5 +56,7 @@ private:
     Ui::MainWindow *ui;
     Citoyen tmpcitoyen;
     recompense tmprecompense;
+    QStringList files;
+
 };
 #endif // MAINWINDOW_H

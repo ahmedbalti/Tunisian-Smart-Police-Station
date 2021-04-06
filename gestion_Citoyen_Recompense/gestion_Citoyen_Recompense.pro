@@ -1,6 +1,6 @@
 QT       += core gui sql network multimedia
 
-
+QT += widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -19,17 +19,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     citoyen.cpp \
     connection.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
-    recompense.cpp
+    recompense.cpp \
+    smtp.cpp
 
 HEADERS += \
     citoyen.h \
     connection.h \
+    login.h \
     mainwindow.h \
-    recompense.h
+    recompense.h \
+    smtp.h
 
 FORMS += \
+    login.ui \
     mainwindow.ui
 
 # Default rules for deployment.
