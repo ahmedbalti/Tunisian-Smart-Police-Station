@@ -8,12 +8,12 @@
 Citoyen::Citoyen()
 {
 nbrPts=0;
-numCin=0;
+numCin="";
 numRec=0;
 nom=""; prenom=""; daten=""; sexe=""; activite="";
 }
 
-Citoyen::Citoyen(int numCin, QString nom, QString prenom, QString daten, QString sexe,QString activite,int nbrPts,int numRec)
+Citoyen::Citoyen(QString numCin, QString nom, QString prenom, QString daten, QString sexe,QString activite,int nbrPts,int numRec)
 {
 this->numCin=numCin;
 this->nom=nom;
@@ -24,7 +24,7 @@ this->activite=activite;
 this->nbrPts=nbrPts;
 this->numRec=numRec;
 }
-int Citoyen::getnumCin(){return numCin;}
+QString Citoyen::getnumCin(){return numCin;}
 QString Citoyen::getnom(){return nom;}
 QString Citoyen::getprenom(){return prenom;}
 QString Citoyen::getdaten(){return daten;}
@@ -33,7 +33,7 @@ QString Citoyen::getactivite(){return activite;}
 int Citoyen::getnbrPts(){return nbrPts;}
 int Citoyen::getnumRec(){return numRec;}
 
-void Citoyen::setnumCin(int numCin){this->numCin=numCin;}
+void Citoyen::setnumCin(QString numCin){this->numCin=numCin;}
 void Citoyen::setnom(QString nom){this->nom=nom;}
 void Citoyen::setprenom(QString prenom){this->prenom=prenom;}
 void Citoyen::setdaten(QString daten){this->daten=daten;}
@@ -46,11 +46,11 @@ bool Citoyen::ajouter(){
    // bool test=false;
     QSqlQuery query;
     QString nbrPts_string= QString::number(nbrPts);
-    QString numCin_string= QString::number(numCin);
+   // QString numCin_string= QString::number(numCin);
     QString numRec_string= QString::number(numRec);
          query.prepare("INSERT INTO Citoyen (numCin, nom, prenom, daten,sexe ,activite, nbrPts ,numRec) "
                        "VALUES (:numCin, :nom, :prenom, :daten, :sexe, :activite, :nbrPts, :numRec)");
-         query.bindValue(":numCin", numCin_string);
+         query.bindValue(":numCin", numCin);
          query.bindValue(":nom", nom);
          query.bindValue(":prenom", prenom);
          query.bindValue(":daten", daten);
@@ -62,7 +62,7 @@ bool Citoyen::ajouter(){
 
 }
 
-bool Citoyen::supprimer(int numCin)
+bool Citoyen::supprimer(QString numCin)
 {
     QSqlQuery query;
     query.prepare("Delete from Citoyen where numCin=:numCin ");
@@ -87,7 +87,7 @@ QSqlQueryModel* Citoyen::afficher()
 
 }
 
-bool Citoyen::modifier(int numCin)
+bool Citoyen::modifier(QString numCin)
 {
     QSqlQuery query;
 
@@ -95,9 +95,9 @@ bool Citoyen::modifier(int numCin)
 
     QString nbrPts_string= QString::number(nbrPts);
     QString numRec_string= QString::number(numRec);
-     QString numCin_string= QString::number(numCin);
+    // QString numCin_string= QString::number(numCin);
 
-    query.prepare("UPDATE Citoyen set nom='"+nom+"',prenom='"+prenom+"',date='"+daten+"',sexe='"+sexe+"',activite='"+activite+"',nbrPts='"+nbrPts_string+"',numRec='"+numRec_string+"' WHERE numCin LIKE '"+numCin_string+"' ");
+    query.prepare("UPDATE Citoyen set nom='"+nom+"',prenom='"+prenom+"',date='"+daten+"',sexe='"+sexe+"',activite='"+activite+"',nbrPts='"+nbrPts_string+"',numRec='"+numRec_string+"' WHERE numCin LIKE '"+numCin+"' ");
 
     //query.bindValue(":numCin",numCin);
   // query.bindValue(":nom",nom);

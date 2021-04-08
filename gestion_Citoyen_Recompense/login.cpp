@@ -8,6 +8,7 @@
 #include<QDebug>
 #include "connection.h"
 
+
 login::login(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::login)
@@ -28,8 +29,10 @@ void login::on_pushButton_clicked()
     MainWindow w;
     if ((utilisateur=="ahmed")&&(mdp=="ahmed"))
     {
+
         w.show();
-        hide();         }
+        hide();
+    }
     else QMessageBox::critical(nullptr, QObject::tr("Problème de connexion"),
                                       QObject::tr("Veuillez revérifier vos informations"), QMessageBox::Cancel);
 

@@ -19,7 +19,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     citoyen.cpp \
     connection.cpp \
-    login.cpp \
     main.cpp \
     mainwindow.cpp \
     recompense.cpp \
@@ -28,13 +27,11 @@ SOURCES += \
 HEADERS += \
     citoyen.h \
     connection.h \
-    login.h \
     mainwindow.h \
     recompense.h \
     smtp.h
 
 FORMS += \
-    login.ui \
     mainwindow.ui
 
 # Default rules for deployment.

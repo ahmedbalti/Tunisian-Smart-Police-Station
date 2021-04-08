@@ -9,7 +9,8 @@
 #include "login.h"
 #include "smtp.h"
 #include <QFileDialog>
-
+#include <QMediaPlayer>
+#include <QSound>
 
 
 QT_BEGIN_NAMESPACE
@@ -52,11 +53,28 @@ private slots:
 
     void on_triRecomp_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_horizontalSlider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
     Citoyen tmpcitoyen;
     recompense tmprecompense;
     QStringList files;
+    QSound *son;
+    QMediaPlayer *mMediaPlayer;
+
 
 };
 #endif // MAINWINDOW_H

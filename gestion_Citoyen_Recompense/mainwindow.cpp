@@ -11,15 +11,28 @@
 #include <QComboBox>
 #include <QMediaPlayer>
 #include <QSound>
+#include<QFileDialog>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    ui->tableCitoyen->setModel(tmpcitoyen.afficher());
+    ui->tableRecompense->setModel(tmprecompense.afficher());
+
+
     ui->setupUi(this);
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
     connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
     connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
+
+    mMediaPlayer=new QMediaPlayer(this);
+    connect(mMediaPlayer,&QMediaPlayer::positionChanged,[&](qint64 pos){ui->progressBar->setValue(pos);});
+    connect(mMediaPlayer,&QMediaPlayer::durationChanged,[&](qint64 dur){ui->progressBar->setMaximum(dur);});
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +49,7 @@ void MainWindow::on_ajouter_clicked()
            player->play();
 
 
-    int numCin=ui->numCin ->text().toInt();
+    QString numCin=ui->numCin ->text();
    ui->numCin->setMaxLength(8);
 
      QString daten=ui->date->date().toString("yyyy/MM/dd");
@@ -60,17 +73,23 @@ void MainWindow::on_ajouter_clicked()
 
     Citoyen C(numCin,nom,prenom,daten,sexe,activite,nbrPts,numRec);
 
-    if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin==0)&&(activite=="")&&(daten==""))
+    if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin=="")&&(activite=="")&&(daten==""))
        {
            QMessageBox::critical(nullptr, QObject::tr("Erreur"),
                        QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
         }
-       else if(((numCin>=99999999) && (numCin<=9999999)) )
-          {
-              QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                          QObject::tr("Attention ! Le numéro de Cin doit contenir 8 chiffres"), QMessageBox::Ok);
+//       else if(((numCin>=99999999) && (numCin<=9999999)) )
+//          {
+//              QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                          QObject::tr("Attention ! Le numéro de Cin doit contenir 8 chiffres"), QMessageBox::Ok);
 
-          }
+//          }
+    else if(numCin =="")
+     {
+         QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                     QObject::tr("Veuillez remplir le numéro de CIN"), QMessageBox::Ok);
+
+     }
        else if(prenom =="")
           {
               QMessageBox::critical(nullptr, QObject::tr("Erreur"),
@@ -135,7 +154,7 @@ void MainWindow::on_supp_clicked()
 
     Citoyen c1;
     // c1.setnumCin(ui->comboBox_2->currentText().toInt());
-     c1.setnumCin(ui->lineEdit_3->text().toInt());
+     c1.setnumCin(ui->lineEdit_3->text());
      if(c1.supprimer(c1.getnumCin()))
      {
           ui->tableCitoyen->setModel(tmpcitoyen.afficher());
@@ -159,7 +178,7 @@ void MainWindow::on_modifer_clicked()
            player->play();
 
 
-    int numCin=ui->lineEdit_2->text().toInt();
+    QString numCin=ui->lineEdit_2->text();
     QString nom=ui->nom_2->text();
     QString prenom=ui->prenom_2->text();
     QString daten=ui->date_2->date().toString();
@@ -170,17 +189,17 @@ void MainWindow::on_modifer_clicked()
 
 Citoyen C(numCin,nom,prenom,daten,sexe,activite,nbrPts,numRec);
 
-if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin==0)&&(activite=="")&&(daten==""))
+if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin=="")&&(activite=="")&&(daten==""))
    {
        QMessageBox::critical(nullptr, QObject::tr("Erreur"),
                    QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
     }
-   else if(((numCin>=99999999) && (numCin<9999999)) )
-      {
-          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                      QObject::tr("Attention ! Le numéro de Cin doit contenir 8 chiffres"), QMessageBox::Ok);
+  else if(numCin =="")
+   {
+       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                   QObject::tr("Veuillez remplir le numéro de CIN"), QMessageBox::Ok);
 
-      }
+   }
    else if(prenom =="")
       {
           QMessageBox::critical(nullptr, QObject::tr("Erreur"),
@@ -458,3 +477,63 @@ void MainWindow::mailSent(QString status)
         QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
 }
 
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    QString utilisateur=ui->lineEdit_12->text();
+    QString mdp=ui->lineEdit_13->text();
+    MainWindow w;
+    if ((utilisateur=="ahmed")&&(mdp=="ahmed"))
+    {
+
+        //w.show();
+
+    }
+
+    else{ QMessageBox::critical(nullptr, QObject::tr("Problème de connexion"),
+                                      QObject::tr("Veuillez revérifier vos informations"), QMessageBox::Cancel);
+
+        hide();
+    }
+
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QString filename=QFileDialog::getOpenFileName(this,"ouvrir");
+        if (filename.isEmpty()){return;}
+        mMediaPlayer->setMedia(QUrl::fromLocalFile(filename));
+      on_pushButton_4_clicked();
+
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    mMediaPlayer->play();
+
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+   mMediaPlayer->pause();
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+   mMediaPlayer->stop();
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    if(ui->pushButton_7->text()=="Muet"){
+        mMediaPlayer->setMuted(true);
+       ui->pushButton_7->setText("Unmuet");}
+       else{ mMediaPlayer->setMuted(false);
+           ui->pushButton_7->setText("Muet");}
+}
+
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+      mMediaPlayer->setVolume(value);
+}
