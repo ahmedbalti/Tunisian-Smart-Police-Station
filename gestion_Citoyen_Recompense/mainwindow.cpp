@@ -18,8 +18,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->tableCitoyen->setModel(tmpcitoyen.afficher());
-    ui->tableRecompense->setModel(tmprecompense.afficher());
 
 
     ui->setupUi(this);
@@ -43,8 +41,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ajouter_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
 
@@ -147,10 +146,12 @@ else {
 
 void MainWindow::on_supp_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
+
 
     Citoyen c1;
     // c1.setnumCin(ui->comboBox_2->currentText().toInt());
@@ -172,10 +173,12 @@ void MainWindow::on_supp_clicked()
 
 void MainWindow::on_modifer_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
+
 
 
     QString numCin=ui->lineEdit_2->text();
@@ -189,49 +192,49 @@ void MainWindow::on_modifer_clicked()
 
 Citoyen C(numCin,nom,prenom,daten,sexe,activite,nbrPts,numRec);
 
-if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin=="")&&(activite=="")&&(daten==""))
-   {
-       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                   QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
-    }
-  else if(numCin =="")
-   {
-       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                   QObject::tr("Veuillez remplir le numéro de CIN"), QMessageBox::Ok);
+//if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin=="")&&(activite=="")&&(daten==""))
+//   {
+//       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                   QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
+//    }
+//  else if(numCin =="")
+//   {
+//       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                   QObject::tr("Veuillez remplir le numéro de CIN"), QMessageBox::Ok);
 
-   }
-   else if(prenom =="")
-      {
-          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                      QObject::tr("Veuillez remplir le prénom"), QMessageBox::Ok);
+//   }
+//   else if(prenom =="")
+//      {
+//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                      QObject::tr("Veuillez remplir le prénom"), QMessageBox::Ok);
 
-      }
-   else if(nom =="")
-      {
-          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                      QObject::tr("Veuillez remplir le nom"), QMessageBox::Ok);
+//      }
+//   else if(nom =="")
+//      {
+//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                      QObject::tr("Veuillez remplir le nom"), QMessageBox::Ok);
 
-      }
-   else if(sexe =="")
-      {
-          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                      QObject::tr("Veuillez choisir le sexe"), QMessageBox::Ok);
+//      }
+//   else if(sexe =="")
+//      {
+//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                      QObject::tr("Veuillez choisir le sexe"), QMessageBox::Ok);
 
-      }
+//      }
 
-   else if(activite =="")
-      {
-          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                      QObject::tr("Veuillez remplir l'activité"), QMessageBox::Ok);
+//   else if(activite =="")
+//      {
+//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                      QObject::tr("Veuillez remplir l'activité"), QMessageBox::Ok);
 
-      }
-else if(daten=="")
-   {
-       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                   QObject::tr("Veuillez remplir la date de naissance"), QMessageBox::Ok);
+//      }
+//else if(daten=="")
+//   {
+//       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                   QObject::tr("Veuillez remplir la date de naissance"), QMessageBox::Ok);
 
-   }
-else {
+//   }
+//else {
 
 if(C.modifier(numCin))
 {
@@ -245,15 +248,17 @@ else
 
                          QObject::tr("Erreur !!!!!!!!\n"), QMessageBox::Cancel);
 }
-}
+//}
 }
 
 void MainWindow::on_pushButton_recherche_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
+
 
     QString recherche =ui->rechercheBTN->text();
     ui->tableCitoyen->setModel(tmpcitoyen.chercher(recherche));
@@ -261,10 +266,12 @@ void MainWindow::on_pushButton_recherche_clicked()
 
 void MainWindow::on_tri_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
+
 
      ui->tableCitoyen->setModel(tmpcitoyen.tri());
 }
@@ -272,10 +279,12 @@ void MainWindow::on_tri_clicked()
 
 void MainWindow::on_ajouterRecomp_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
+
 
     int numRec=ui->numRec->text().toInt();
      QString nomRec=ui->nomRec_2->text();
@@ -294,10 +303,10 @@ void MainWindow::on_ajouterRecomp_clicked()
                               QObject::tr("Veuillez taper un numéro différent de 0"), QMessageBox::Ok);
 
               }
-        else if(nomRec =="")
+        else if(nomRec =="" )
               {
                   QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                              QObject::tr("Veuillez remplir le nom de la récompense"), QMessageBox::Ok);
+                              QObject::tr("Veuillez remplir le nom de la récompense (soit cinéma soit resto soit bande d'achat)"), QMessageBox::Ok);
 
               }
         else if(nbrEx <1 )
@@ -335,14 +344,15 @@ void MainWindow::on_ajouterRecomp_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
 
     recompense r1;
-   r1.setnumRec(ui->suppRec->currentText().toInt());
-           // r1.setnumRec(ui->supp->text().toInt());
+   //r1.setnumRec(ui->suppRec->currentText().toInt());
+            r1.setnumRec(ui->lineEdit_11->text().toInt());
     if(r1.supprimer(r1.getnumRec()))
     {
         ui->tableRecompense->setModel(tmprecompense.afficher());
@@ -360,12 +370,15 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_modifierRecompense_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
 
-    int numRec=ui->numRec_2->currentText().toInt();
+
+    //int numRec=ui->numRec_2->currentText().toInt();lineEdit_8
+          int numRec=ui->lineEdit_8->text().toInt();
     // int numRec=ui->modifierRec->text().toInt();
      QString nomRec=ui->nomRec->text();
      ui->nomRec->setMaxLength(15);
@@ -382,10 +395,10 @@ void MainWindow::on_modifierRecompense_clicked()
                            QObject::tr("Veuillez taper un numéro différent de 0"), QMessageBox::Ok);
 
            }
-     else if(nomRec =="")
+     else if(nomRec =="" )
            {
                QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                           QObject::tr("Veuillez remplir le nom de la récompense"), QMessageBox::Ok);
+                           QObject::tr("Veuillez remplir le nom de la récompense (soit cinéma soit resto soit bande d'achat)"), QMessageBox::Ok);
 
            }
      else if(nbrEx <1 )
@@ -420,10 +433,12 @@ void MainWindow::on_modifierRecompense_clicked()
 
 void MainWindow::on_rechercheRecompense_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
+
 
 
     QString recherche =ui->edit_recherche->text();
@@ -434,8 +449,9 @@ void MainWindow::on_rechercheRecompense_clicked()
 
 void MainWindow::on_triRecomp_clicked()
 {
+
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/music/bruit-clic.mp3"));
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
            player->setVolume(3000);
            player->play();
 
@@ -480,6 +496,20 @@ void MainWindow::mailSent(QString status)
 
 void MainWindow::on_pushButton_2_clicked()
 {
+//    QMediaPlayer * bulletsound = new QMediaPlayer();
+//           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+//          if (bulletsound->state() == QMediaPlayer::PlayingState){
+//               bulletsound->setPosition(0);
+//           }
+//           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+//               bulletsound->play();
+//           }
+
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+           player->setVolume(3000);
+           player->play();
+
     ui->stackedWidget->setCurrentIndex(1);
     QString utilisateur=ui->lineEdit_12->text();
     QString mdp=ui->lineEdit_13->text();
@@ -501,6 +531,13 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
+
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+           player->setVolume(3000);
+           player->play();
+
+
     QString filename=QFileDialog::getOpenFileName(this,"ouvrir");
         if (filename.isEmpty()){return;}
         mMediaPlayer->setMedia(QUrl::fromLocalFile(filename));
@@ -510,22 +547,42 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    mMediaPlayer->play();
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+           player->setVolume(3000);
+           player->play();
+
+
+           if(ui->pushButton_4->text()=="Play"){
+               mMediaPlayer->play();
+              ui->pushButton_4->setText("Pause");}
+              else{ mMediaPlayer->pause();
+                  ui->pushButton_4->setText("Play");}
 
 }
 
-void MainWindow::on_pushButton_5_clicked()
-{
-   mMediaPlayer->pause();
-}
 
 void MainWindow::on_pushButton_6_clicked()
 {
+
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+           player->setVolume(3000);
+           player->play();
+
+
    mMediaPlayer->stop();
 }
 
 void MainWindow::on_pushButton_7_clicked()
 {
+
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+           player->setVolume(3000);
+           player->play();
+
+
     if(ui->pushButton_7->text()=="Muet"){
         mMediaPlayer->setMuted(true);
        ui->pushButton_7->setText("Unmuet");}
@@ -535,5 +592,47 @@ void MainWindow::on_pushButton_7_clicked()
 
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
+
+    QMediaPlayer *player = new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+           player->setVolume(3000);
+           player->play();
+
+
       mMediaPlayer->setVolume(value);
+}
+
+void MainWindow::on_tableCitoyen_activated(const QModelIndex &index)
+{
+    int selected_row=ui->tableCitoyen->currentIndex().row();
+
+
+    QString selected_numCin=ui->tableCitoyen->model()->data(index.sibling(selected_row,0)).toString();
+     ui->lineEdit_3->setText(ui->tableCitoyen->model()->data(index.sibling(selected_row,0)).toString());
+
+    ui->lineEdit_2->setText(selected_numCin);
+    ui->nom_2->setText(ui->tableCitoyen->model()->data(index.sibling(selected_row,1)).toString());
+    ui->prenom_2->setText(ui->tableCitoyen->model()->data(index.sibling(selected_row,2)).toString());
+    ui->date_2->setDate(ui->tableCitoyen->model()->data(index.sibling(selected_row,3)).toDate());
+    ui->activite_2->setText(ui->tableCitoyen->model()->data(index.sibling(selected_row,4)).toString());
+    ui->nbrPts->setText(ui->tableCitoyen->model()->data(index.sibling(selected_row,5)).toString());
+    ui->lineEdit_9->setText(ui->tableCitoyen->model()->data(index.sibling(selected_row,6)).toString());
+    ui->lineEdit_10->setText(ui->tableCitoyen->model()->data(index.sibling(selected_row,7)).toString());
+
+}
+
+void MainWindow::on_tableRecompense_activated(const QModelIndex &index)
+{
+    int selected_row=ui->tableRecompense->currentIndex().row();
+
+
+    QString selected_numRec=ui->tableRecompense->model()->data(index.sibling(selected_row,0)).toString();
+     ui->lineEdit_11->setText(ui->tableRecompense->model()->data(index.sibling(selected_row,0)).toString());
+
+    ui->lineEdit_8->setText(selected_numRec);
+    ui->nomRec->setText(ui->tableRecompense->model()->data(index.sibling(selected_row,1)).toString());
+    ui->nbrEx_2->setText(ui->tableRecompense->model()->data(index.sibling(selected_row,2)).toString());
+    ui->nbrPts_2->setText(ui->tableRecompense->model()->data(index.sibling(selected_row,3)).toString());
+    ui->lineEdit_6->setText(ui->tableRecompense->model()->data(index.sibling(selected_row,4)).toString());
+
 }
