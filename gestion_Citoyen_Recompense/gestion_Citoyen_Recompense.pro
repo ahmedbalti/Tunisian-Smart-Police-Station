@@ -1,6 +1,8 @@
 QT       += core gui sql network multimedia
-
+QT       += core gui charts
 QT += widgets
+QT += printsupport
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -22,17 +24,20 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     recompense.cpp \
-    smtp.cpp
+    smtp.cpp \
+    stat.cpp
 
 HEADERS += \
     citoyen.h \
     connection.h \
     mainwindow.h \
     recompense.h \
-    smtp.h
+    smtp.h \
+    stat.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    stat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

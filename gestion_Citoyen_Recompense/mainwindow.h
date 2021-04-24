@@ -39,8 +39,6 @@ private slots:
 
     void on_tri_clicked();
 
-
-
     void on_pushButton_modifierconges_clicked();
 
     void on_modifierRecompense_clicked();
@@ -68,6 +66,19 @@ private slots:
     void on_tableCitoyen_activated(const QModelIndex &index);
 
     void on_tableRecompense_activated(const QModelIndex &index);
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+
+
+
+
+
+
 
 private:
     Ui::MainWindow *ui;

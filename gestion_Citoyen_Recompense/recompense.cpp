@@ -6,11 +6,11 @@
 
 recompense::recompense()
 {
-numRec=0; nbrPts=0; nbrEx=0;
+numRec=""; nbrPts=0; nbrEx=0;
 nomRec=""; description="";
 }
 
-recompense::recompense(int numRec,QString nomRec,int nbrEx,QString description,int nbrPts)
+recompense::recompense(QString numRec,QString nomRec,int nbrEx,QString description,int nbrPts)
 {
     this->numRec=numRec;
     this->nomRec=nomRec;
@@ -19,14 +19,14 @@ recompense::recompense(int numRec,QString nomRec,int nbrEx,QString description,i
     this->nbrPts=nbrPts;
 }
 
-int recompense::getnumRec(){return numRec;}
+QString recompense::getnumRec(){return numRec;}
 int recompense::getnbrPts(){return nbrPts;}
 int recompense::getnbrEx(){return nbrEx;}
 QString recompense::getnomRec(){return nomRec;}
 QString recompense::getdescription(){return description;}
 
 
-void recompense::setnumRec(int numRec)
+void recompense::setnumRec(QString numRec)
 {
     this->numRec=numRec;
 }
@@ -51,12 +51,12 @@ bool recompense::ajouter()
 {
     QSqlQuery query;
     QString nbrPts_string= QString::number(nbrPts);
-    QString numRec_string= QString::number(numRec);
+    //QString numRec_string= QString::number(numRec);
     QString nbrEx_string= QString::number(nbrEx);
 
     query.prepare("INSERT INTO recompense (numRec, nomRec, nbrEx, description, nbrPts ) "
                   "VALUES (:numRec, :nomRec, :nbrEx, :description, :nbrPts)");
-    query.bindValue(":numRec", numRec_string);
+    query.bindValue(":numRec", numRec);
     query.bindValue(":nomRec", nomRec);
     query.bindValue(":nbrEx", nbrEx_string);
     query.bindValue(":description", description);
@@ -64,7 +64,7 @@ bool recompense::ajouter()
     return query.exec();
 }
 
-bool recompense::supprimer(int numRec)
+bool recompense::supprimer(QString numRec)
 {
     QSqlQuery query;
     query.prepare("Delete from recompense where numRec=:numRec ");
@@ -87,16 +87,16 @@ QSqlQueryModel* recompense::afficher()
 
 }
 
-bool recompense::modifier(int numRec)
+bool recompense::modifier(QString numRec)
 {
     QSqlQuery query;
 
     QString nbrPts_string= QString::number(nbrPts);
-    QString numRec_string= QString::number(numRec);
+   // QString numRec_string= QString::number(numRec);
     QString nbrEx_string= QString::number(nbrEx);
 
 
-    query.prepare("UPDATE recompense set nomRec='"+nomRec+"',nbrEx='"+nbrEx_string+"',description='"+description+"',nbrPts='"+nbrPts_string+"' WHERE numRec LIKE '"+numRec_string+"' ");
+    query.prepare("UPDATE recompense set nomRec='"+nomRec+"',nbrEx='"+nbrEx_string+"',description='"+description+"',nbrPts='"+nbrPts_string+"' WHERE numRec LIKE '"+numRec+"' ");
 
     return query.exec();
 
@@ -122,5 +122,21 @@ QSqlQueryModel * recompense::tri()
 
         return model;
 }
+
+int recompense::calculer(QString type) {
+      QSqlQuery query;
+      //query.prepare("select *  from recompense r  join Citoyen ci on(r.numRec=ci.numRec) where(r.nomRec = :type)");
+      query.prepare("select *  from recompense  where ( nomRec = :type)");
+      query.bindValue(":type", type);
+
+   query.exec();
+      int total = 0;
+      while (query.next()) {
+        total++;
+      }
+return total;
+
+      }
+
 
 

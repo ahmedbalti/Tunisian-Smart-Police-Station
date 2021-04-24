@@ -7,7 +7,7 @@ class Citoyen
 {
 public:
     Citoyen();
-    Citoyen(QString,QString,QString,QString,QString,QString,int,int);
+    Citoyen(QString,QString,QString,QString,QString,QString,int,QString);
 
     QString getnumCin();
     QString getnom();
@@ -16,7 +16,7 @@ public:
     QString getsexe();
     QString getactivite();
     int getnbrPts();
-    int getnumRec();
+    QString getnumRec();
 
     bool ajouter();
     QSqlQueryModel* afficher();
@@ -30,7 +30,7 @@ public:
     void setsexe(QString);
     void setactivite(QString);
     void setnbrPts(int);
-    void setnumRec(int);
+    void setnumRec(QString);
    // int test(int);
 QSqlQueryModel * chercher(QString);
 QSqlQueryModel * affecter_recompense();
@@ -38,8 +38,8 @@ QSqlQueryModel * tri();
 
 //bool affecter(QString);
  private:
-    int nbrPts,numRec;
-    QString nom,prenom,daten,sexe,activite,numCin;
+    int nbrPts;
+    QString nom,prenom,daten,sexe,activite,numCin,numRec;
 };
 
 #endif // CITOYEN_H

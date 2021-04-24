@@ -83,15 +83,26 @@ font: 14pt &quot;Rockwell&quot;;</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:rgb(103, 161, 255);
+</string>
+       </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_13">
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>270</y>
+         <y>260</y>
          <width>161</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:rgb(103, 161, 255);
+</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
        </property>
       </widget>
       <widget class="QLabel" name="label_76">
@@ -157,7 +168,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
 font: 15pt &quot;Rockwell&quot;;</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="ongletCit">
        <attribute name="title">
@@ -300,7 +311,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
          </font>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="ajouterCit">
          <attribute name="title">
@@ -377,6 +388,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <height>31</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
+            </property>
            </widget>
            <widget class="QLabel" name="label_11">
             <property name="geometry">
@@ -422,6 +437,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <height>31</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
+            </property>
            </widget>
            <widget class="QLineEdit" name="nom">
             <property name="geometry">
@@ -431,6 +450,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <width>113</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_20">
@@ -464,6 +487,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <height>31</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
+            </property>
            </widget>
            <widget class="QLabel" name="label_8">
             <property name="geometry">
@@ -496,6 +523,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <height>31</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
+            </property>
            </widget>
            <widget class="QLabel" name="label_7">
             <property name="geometry">
@@ -527,6 +558,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <width>111</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
             </property>
             <item>
              <property name="text">
@@ -570,6 +605,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <height>31</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
+            </property>
            </widget>
            <widget class="QLabel" name="label_13">
             <property name="geometry">
@@ -601,6 +640,10 @@ font: 15pt &quot;Rockwell&quot;;</string>
               <width>113</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:rgb(103, 161, 255);
+</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_9">
@@ -2638,9 +2681,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="activite_2">
            <property name="geometry">
             <rect>
-             <x>770</x>
+             <x>762</x>
              <y>130</y>
-             <width>113</width>
+             <width>121</width>
              <height>31</height>
             </rect>
            </property>
@@ -2648,9 +2691,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="nbrPts">
            <property name="geometry">
             <rect>
-             <x>770</x>
+             <x>762</x>
              <y>210</y>
-             <width>113</width>
+             <width>121</width>
              <height>31</height>
             </rect>
            </property>
@@ -2680,9 +2723,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="nom_2">
            <property name="geometry">
             <rect>
-             <x>220</x>
+             <x>210</x>
              <y>200</y>
-             <width>111</width>
+             <width>121</width>
              <height>31</height>
             </rect>
            </property>
@@ -2712,9 +2755,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QDateEdit" name="date_2">
            <property name="geometry">
             <rect>
-             <x>220</x>
+             <x>210</x>
              <y>360</y>
-             <width>110</width>
+             <width>121</width>
              <height>31</height>
             </rect>
            </property>
@@ -2729,42 +2772,12 @@ color:rgb(12, 166, 97);</string>
             </rect>
            </property>
           </widget>
-          <widget class="QComboBox" name="comboBox_2">
-           <property name="geometry">
-            <rect>
-             <x>770</x>
-             <y>80</y>
-             <width>111</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <item>
-            <property name="text">
-             <string>Homme</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Femme</string>
-            </property>
-           </item>
-          </widget>
-          <widget class="QComboBox" name="comboBox_3">
-           <property name="geometry">
-            <rect>
-             <x>790</x>
-             <y>430</y>
-             <width>111</width>
-             <height>31</height>
-            </rect>
-           </property>
-          </widget>
           <widget class="QLineEdit" name="prenom_2">
            <property name="geometry">
             <rect>
-             <x>220</x>
+             <x>212</x>
              <y>281</y>
-             <width>113</width>
+             <width>121</width>
              <height>31</height>
             </rect>
            </property>
@@ -2772,9 +2785,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="lineEdit_9">
            <property name="geometry">
             <rect>
-             <x>770</x>
+             <x>762</x>
              <y>290</y>
-             <width>113</width>
+             <width>121</width>
              <height>31</height>
             </rect>
            </property>
@@ -2782,9 +2795,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="lineEdit_10">
            <property name="geometry">
             <rect>
-             <x>780</x>
+             <x>762</x>
              <y>370</y>
-             <width>113</width>
+             <width>121</width>
              <height>31</height>
             </rect>
            </property>
@@ -2894,6 +2907,10 @@ color:rgb(12, 166, 97);</string>
              <width>121</width>
              <height>31</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:rgb(103, 161, 255);
+</string>
            </property>
           </widget>
           <widget class="QPushButton" name="supp">
@@ -3125,7 +3142,7 @@ color:rgb(212, 139, 97);</string>
          <bool>true</bool>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="ajoutercong">
          <attribute name="title">
@@ -3287,6 +3304,9 @@ color:rgb(103, 161, 255);
              <height>21</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 255);</string>
+           </property>
           </widget>
           <widget class="QLineEdit" name="nomRec_2">
            <property name="geometry">
@@ -3297,6 +3317,9 @@ color:rgb(103, 161, 255);
              <height>21</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 255);</string>
+           </property>
           </widget>
           <widget class="QLineEdit" name="nbrEx">
            <property name="geometry">
@@ -3306,6 +3329,9 @@ color:rgb(103, 161, 255);
              <width>131</width>
              <height>21</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 255);</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_25">
@@ -3343,6 +3369,9 @@ color:rgb(103, 161, 255);
              <height>22</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 255);</string>
+           </property>
           </widget>
           <widget class="QLineEdit" name="lineEdit_5">
            <property name="geometry">
@@ -3353,6 +3382,34 @@ color:rgb(103, 161, 255);
              <height>121</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 255);</string>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="comboBox_3">
+           <property name="geometry">
+            <rect>
+             <x>372</x>
+             <y>130</y>
+             <width>131</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <item>
+            <property name="text">
+             <string>resto</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>bande d'achat</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>cinema</string>
+            </property>
+           </item>
           </widget>
          </widget>
          <widget class="QLabel" name="label_42">
@@ -3398,9 +3455,9 @@ color:rgb(103, 161, 255);
          <widget class="QPushButton" name="rechercheRecompense">
           <property name="geometry">
            <rect>
-            <x>110</x>
+            <x>90</x>
             <y>30</y>
-            <width>511</width>
+            <width>501</width>
             <height>51</height>
            </rect>
           </property>
@@ -5060,7 +5117,7 @@ color:rgb(103, 161, 255);
          <widget class="QLineEdit" name="edit_recherche">
           <property name="geometry">
            <rect>
-            <x>650</x>
+            <x>630</x>
             <y>30</y>
             <width>171</width>
             <height>51</height>
@@ -5070,9 +5127,9 @@ color:rgb(103, 161, 255);
          <widget class="QTableView" name="tableRecompense">
           <property name="geometry">
            <rect>
-            <x>110</x>
+            <x>90</x>
             <y>100</y>
-            <width>711</width>
+            <width>721</width>
             <height>281</height>
            </rect>
           </property>
@@ -5256,9 +5313,9 @@ color:rgb(103, 161, 255);
           <widget class="QLineEdit" name="lineEdit_6">
            <property name="geometry">
             <rect>
-             <x>230</x>
+             <x>210</x>
              <y>270</y>
-             <width>111</width>
+             <width>141</width>
              <height>21</height>
             </rect>
            </property>
@@ -5295,9 +5352,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="lineEdit_8">
            <property name="geometry">
             <rect>
-             <x>230</x>
+             <x>212</x>
              <y>90</y>
-             <width>113</width>
+             <width>141</width>
              <height>22</height>
             </rect>
            </property>
@@ -5305,9 +5362,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="nomRec">
            <property name="geometry">
             <rect>
-             <x>230</x>
+             <x>212</x>
              <y>150</y>
-             <width>113</width>
+             <width>141</width>
              <height>22</height>
             </rect>
            </property>
@@ -5315,9 +5372,9 @@ color:rgb(12, 166, 97);</string>
           <widget class="QLineEdit" name="nbrEx_2">
            <property name="geometry">
             <rect>
-             <x>230</x>
+             <x>212</x>
              <y>210</y>
-             <width>113</width>
+             <width>141</width>
              <height>22</height>
             </rect>
            </property>
@@ -5458,6 +5515,9 @@ color:rgb(255, 255, 255);</string>
              <height>31</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 255);</string>
+           </property>
           </widget>
           <zorder>label_46</zorder>
           <zorder>label_43</zorder>
@@ -5489,6 +5549,65 @@ color:rgb(255, 255, 255);</string>
          <attribute name="title">
           <string>statistique</string>
          </attribute>
+         <widget class="QLabel" name="label_48">
+          <property name="geometry">
+           <rect>
+            <x>25</x>
+            <y>30</y>
+            <width>921</width>
+            <height>451</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_5">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>20</y>
+            <width>541</width>
+            <height>111</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Rockwell</family>
+            <pointsize>22</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
+color:rgb(103, 161, 255);
+font: 22pt &quot;Rockwell&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Statistiques Des Récompenses </string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_50">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>981</width>
+            <height>531</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/24.jpg);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <zorder>label_50</zorder>
+         <zorder>label_48</zorder>
+         <zorder>pushButton_5</zorder>
         </widget>
        </widget>
       </widget>
@@ -5969,6 +6088,66 @@ color:rgb(255, 250, 190);</string>
          </property>
         </widget>
        </widget>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>PDF</string>
+       </attribute>
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>260</y>
+          <width>161</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
+color:rgb(103, 161, 255);
+</string>
+        </property>
+        <property name="text">
+         <string>PDF</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>260</y>
+          <width>161</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
+color:rgb(103, 161, 255);
+</string>
+        </property>
+        <property name="text">
+         <string>Impression</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_49">
+        <property name="geometry">
+         <rect>
+          <x>-10</x>
+          <y>0</y>
+          <width>991</width>
+          <height>551</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/23.jpg);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>label_49</zorder>
+       <zorder>pushButton_8</zorder>
+       <zorder>pushButton_9</zorder>
       </widget>
      </widget>
     </widget>

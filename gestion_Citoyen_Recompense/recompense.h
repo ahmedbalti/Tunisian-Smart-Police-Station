@@ -6,7 +6,7 @@
 class recompense
 {
 private:
-    int numRec;
+    QString numRec;
     int nbrPts;
     int nbrEx;
 
@@ -15,25 +15,29 @@ private:
 
 public:
     recompense();
-    recompense(int,QString,int,QString,int);
+    recompense(QString,QString,int,QString,int);
 
-    int getnumRec();
+    QString getnumRec();
     int getnbrPts();
     int getnbrEx();
     QString getnomRec();
     QString getdescription();
 
-    void setnumRec(int);
+    void setnumRec(QString);
     void setnbrPts(int);
     void setnbrEx(int);
     void setnomRec(QString);
     void setdescription(QString);
     bool ajouter();
-    bool supprimer(int);
+    bool supprimer(QString);
     QSqlQueryModel* afficher();
-    bool modifier(int);
+    bool modifier(QString);
     QSqlQueryModel * chercher(QString);
     QSqlQueryModel * tri();
+    QSqlQueryModel * affecter_recompense();
+
+    int  calculer(QString);
+
 
 };
 

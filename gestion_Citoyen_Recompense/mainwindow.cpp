@@ -12,6 +12,51 @@
 #include <QMediaPlayer>
 #include <QSound>
 #include<QFileDialog>
+#include <stat.h>
+#include<QtPrintSupport/QPrinter>
+#include <QSystemTrayIcon>
+
+#include<QPdfWriter>
+
+#include <QPainter>
+
+#include<QFileDialog>
+
+#include<QTextDocument>
+
+#include <QTextEdit>
+
+#include <QtSql/QSqlQueryModel>
+
+#include<QtPrintSupport/QPrinter>
+
+#include <QVector2D>
+
+#include <QVector>
+
+#include <QSqlQuery>
+
+#include<QDesktopServices>
+
+#include <QMessageBox>
+
+#include<QUrl>
+
+#include <QPixmap>
+
+#include <QTabWidget>
+
+#include <QValidator>
+
+#include <QPrintDialog>
+
+#include<QtSql/QSqlQuery>
+
+#include<QVariant>
+
+
+
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -29,6 +74,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(mMediaPlayer,&QMediaPlayer::positionChanged,[&](qint64 pos){ui->progressBar->setValue(pos);});
     connect(mMediaPlayer,&QMediaPlayer::durationChanged,[&](qint64 dur){ui->progressBar->setMaximum(dur);});
 
+    ui->tableCitoyen->setModel(tmpcitoyen.afficher());
+    ui->tableRecompense->setModel(tmprecompense.afficher());
+  //  ui->comboBox_2->setModel(tmpcitoyen.affecter_recompense());
 
 
 }
@@ -58,17 +106,14 @@ void MainWindow::on_ajouter_clicked()
      ui->nom->setMaxLength(15);
     QString prenom=ui->prenom->text();
     ui->prenom->setMaxLength(15);
-//    ui->comboBox->addItem("Homme");
-//     ui->comboBox->addItem("Femme");
     QString sexe=ui->comboBox->currentText();
     // ui->comboBox->setMaxLength(10);
 
      QString activite=ui->activite->text();
-      ui->activite->setMaxLength(15);
-      int nbrPts=ui->nbr_pts ->text().toInt();
-      int numRec=ui->lineEdit ->text().toInt();
-
-
+     ui->activite->setMaxLength(15);
+     int nbrPts=ui->nbr_pts ->text().toInt();
+     QString numRec=ui->lineEdit ->text();
+        //QString numRec = ui->comboBox_2->currentText();
 
     Citoyen C(numCin,nom,prenom,daten,sexe,activite,nbrPts,numRec);
 
@@ -89,6 +134,12 @@ void MainWindow::on_ajouter_clicked()
                      QObject::tr("Veuillez remplir le numéro de CIN"), QMessageBox::Ok);
 
      }
+    else if (numCin.size()!=8)
+    {
+       QMessageBox::critical(nullptr, QObject::tr("WARNING"),
+                   QObject::tr("le numéro de Cin doit se composer par 8 chiffres"), QMessageBox::Ok);
+
+    }
        else if(prenom =="")
           {
               QMessageBox::critical(nullptr, QObject::tr("Erreur"),
@@ -125,23 +176,42 @@ else {
     if(C.ajouter())
       {
            ui->tableCitoyen->setModel(tmpcitoyen.afficher());
-         QMessageBox::information(nullptr, QObject::tr("BIEN"),
-                     QObject::tr("Ajout effectuer avec succés.\n" ), QMessageBox::Cancel);
+           QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+                   notifyIcon->show();
+                   notifyIcon->setIcon(QIcon("icone.png"));
 
-                 ui->numCin->setText("");
-                 ui->nom->setText("");
-                 ui->prenom->setText("");
-                 ui->lineEdit_3->setText("");
-            //  ui->sexe->setText("");
-                 ui->activite->setText("");
-                 ui->nbr_pts->setText("");
-                 ui->lineEdit->setText("");
+                   notifyIcon->showMessage("GESTION citoyen","citoyen Ajouté",QSystemTrayIcon::Information,15000);
 
-    }else{
-            QMessageBox::information(nullptr, QObject::tr("ECHEC!!!"),
-                        QObject::tr("Citoyen existe déja.\n"), QMessageBox::Cancel);
-        }
-}
+               QMessageBox::information(nullptr, QObject::tr("ajouter citoyen"),
+                                     QObject::tr("citoyen ajouté./n"
+                                        "click cancel to exit."),QMessageBox::Cancel);
+               }
+
+               else
+                   QMessageBox::critical(nullptr, QObject::tr("ajouter citoyen"),
+                                         QObject::tr("Erreur !./n"
+                                            "click cancel to exit."),QMessageBox::Cancel);
+
+
+           }
+//         QMessageBox::information(nullptr, QObject::tr("BIEN"),
+//                     QObject::tr("Ajout effectuer avec succés.\n" ), QMessageBox::Cancel);
+
+
+//                 ui->numCin->setText("");
+//                 ui->nom->setText("");
+//                 ui->prenom->setText("");
+//                 ui->lineEdit_3->setText("");
+//            //  ui->sexe->setText("");
+//                 ui->activite->setText("");
+//                 ui->nbr_pts->setText("");
+//                 ui->lineEdit->setText("");
+
+//    }else{
+//            QMessageBox::information(nullptr, QObject::tr("ECHEC!!!"),
+//                        QObject::tr("Citoyen existe déja.\n"), QMessageBox::Cancel);
+//        }
+//}
 }
 
 void MainWindow::on_supp_clicked()
@@ -184,60 +254,62 @@ void MainWindow::on_modifer_clicked()
     QString numCin=ui->lineEdit_2->text();
     QString nom=ui->nom_2->text();
     QString prenom=ui->prenom_2->text();
-    QString daten=ui->date_2->date().toString();
-    QString sexe=ui->comboBox_2->currentText();
+  QString daten=ui->date_2->date().toString();
+    QString sexe=ui->activite_2->text();
     QString activite=ui->activite_2->text();
     int nbrPts=ui->nbrPts->text().toInt();
-   int numRec=ui->comboBox_3->currentText().toInt();
+     QString numRec=ui->lineEdit_10->text();
+  // int numRec=ui->comboBox_3->currentText().toInt();
 
 Citoyen C(numCin,nom,prenom,daten,sexe,activite,nbrPts,numRec);
 
-//if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin=="")&&(activite=="")&&(daten==""))
-//   {
-//       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-//                   QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
-//    }
-//  else if(numCin =="")
-//   {
-//       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-//                   QObject::tr("Veuillez remplir le numéro de CIN"), QMessageBox::Ok);
+if((prenom=="")&&(nom=="")&&(sexe=="")&&(numCin=="")&&(activite=="")&&(daten==""))
+   {
+       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                   QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
+    }
+  else if(numCin =="")
+   {
+       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                   QObject::tr("Veuillez remplir le numéro de CIN"), QMessageBox::Ok);
 
-//   }
-//   else if(prenom =="")
-//      {
-//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-//                      QObject::tr("Veuillez remplir le prénom"), QMessageBox::Ok);
+   }
+   else if(prenom =="")
+      {
+          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                      QObject::tr("Veuillez remplir le prénom"), QMessageBox::Ok);
 
-//      }
-//   else if(nom =="")
-//      {
-//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-//                      QObject::tr("Veuillez remplir le nom"), QMessageBox::Ok);
+      }
+   else if(nom =="")
+      {
+          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                      QObject::tr("Veuillez remplir le nom"), QMessageBox::Ok);
 
-//      }
-//   else if(sexe =="")
-//      {
-//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-//                      QObject::tr("Veuillez choisir le sexe"), QMessageBox::Ok);
+      }
+   else if(sexe =="")
+      {
+          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                      QObject::tr("Veuillez choisir le sexe"), QMessageBox::Ok);
 
-//      }
+      }
 
-//   else if(activite =="")
-//      {
-//          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-//                      QObject::tr("Veuillez remplir l'activité"), QMessageBox::Ok);
+   else if(activite =="")
+      {
+          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                      QObject::tr("Veuillez remplir l'activité"), QMessageBox::Ok);
 
-//      }
-//else if(daten=="")
-//   {
-//       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-//                   QObject::tr("Veuillez remplir la date de naissance"), QMessageBox::Ok);
+      }
+else if(daten=="")
+   {
+       QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                   QObject::tr("Veuillez remplir la date de naissance"), QMessageBox::Ok);
 
-//   }
-//else {
+   }
+else {
 
 if(C.modifier(numCin))
 {
+    ui->tableCitoyen->setModel(tmpcitoyen.afficher());
          QMessageBox::information(nullptr, QObject::tr("Modifier un Citoyen"),
                      QObject::tr("citoyen modifié.\n"), QMessageBox::Cancel);
 
@@ -248,8 +320,10 @@ else
 
                          QObject::tr("Erreur !!!!!!!!\n"), QMessageBox::Cancel);
 }
-//}
 }
+}
+
+
 
 void MainWindow::on_pushButton_recherche_clicked()
 {
@@ -276,71 +350,73 @@ void MainWindow::on_tri_clicked()
      ui->tableCitoyen->setModel(tmpcitoyen.tri());
 }
 
-
 void MainWindow::on_ajouterRecomp_clicked()
 {
 
-    QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
-           player->setVolume(3000);
-           player->play();
+QMediaPlayer *player = new QMediaPlayer;
+          player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+          player->setVolume(3000);
+          player->play();
 
 
-    int numRec=ui->numRec->text().toInt();
-     QString nomRec=ui->nomRec_2->text();
-     ui->nomRec_2->setMaxLength(15);
-     int nbrEx=ui->nbrEx->text().toInt();
-     QString description=ui->lineEdit_5->text();
-     ui->lineEdit_5->setMaxLength(50);
-     int nbrPts=ui->lineEdit_4->text().toInt();
+//   int numRec=ui->numRec->text().toInt();
+       QString   numRec=ui->numRec->text();
+//    QString nomRec=ui->nomRec_2->text();
+//    ui->nomRec_2->setMaxLength(20);
+       QString nomRec=ui->comboBox_3->currentText();
+    int nbrEx=ui->nbrEx->text().toInt();
+    QString description=ui->lineEdit_5->text();
+    ui->lineEdit_5->setMaxLength(20);
+    int nbrPts=ui->lineEdit_4->text().toInt();
 
 
 
-        recompense r(numRec,nomRec,nbrEx,description,nbrPts);
-        if(numRec ==0)
-              {
-                  QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                              QObject::tr("Veuillez taper un numéro différent de 0"), QMessageBox::Ok);
+       recompense r(numRec,nomRec,nbrEx,description,nbrPts);
+       if(numRec =="")
+             {
+                 QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                             QObject::tr("Veuillez taper un numéro différent de chaine vide"), QMessageBox::Ok);
 
-              }
-        else if(nomRec =="" )
-              {
-                  QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                              QObject::tr("Veuillez remplir le nom de la récompense (soit cinéma soit resto soit bande d'achat)"), QMessageBox::Ok);
+             }
+       else if(nomRec =="" )
+             {
+                 QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                             QObject::tr("Veuillez remplir le nom de la récompense (soit cinéma soit resto soit bande d'achat)"), QMessageBox::Ok);
 
-              }
-        else if(nbrEx <1 )
-           {
-               QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                           QObject::tr("Veuillez donnez un nombre d'exemplaires supérieur ou égal à 1"), QMessageBox::Ok);
+             }
+       else if(nbrEx <1 )
+          {
+              QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                          QObject::tr("Veuillez donnez un nombre d'exemplaires supérieur ou égal à 1"), QMessageBox::Ok);
 
-           }
-           else if(nbrPts <50)
-              {
-                  QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                              QObject::tr("Le nombre de points est insuffisant pour avoir une récompense"), QMessageBox::Ok);
+          }
+          else if(nbrPts <50)
+             {
+                 QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                             QObject::tr("Le nombre de points est insuffisant pour avoir une récompense"), QMessageBox::Ok);
 
-              }
-        else {
+             }
+       else {
 
-        if(r.ajouter()) {
-             ui->tableRecompense->setModel(tmprecompense.afficher());
-            QMessageBox::information(nullptr, QObject::tr("BIEN"),
-                        QObject::tr("Ajout effectuer avec succés.\n" ), QMessageBox::Cancel);
+       if(r.ajouter()) {
+            ui->tableRecompense->setModel(tmprecompense.afficher());
+           QMessageBox::information(nullptr, QObject::tr("BIEN"),
+                       QObject::tr("Ajout effectuer avec succés.\n" ), QMessageBox::Cancel);
 
-            ui->numRec->setText("");
-            ui->nomRec_2->setText("");
-                ui->nbrEx->setText("");
-                    ui->lineEdit_5->setText("");
-                    ui->lineEdit_4->setText("");
+           ui->numRec->setText("");
+           ui->nomRec_2->setText("");
+               ui->nbrEx->setText("");
+                   ui->lineEdit_5->setText("");
+                   ui->lineEdit_4->setText("");
 
 
-    }else{
-            QMessageBox::information(nullptr, QObject::tr("ECHEC!!!"),
-                        QObject::tr("recompense existe déja.\n"), QMessageBox::Cancel);
-        }
+   }else{
+           QMessageBox::information(nullptr, QObject::tr("ECHEC!!!"),
+                       QObject::tr("recompense existe déja.\n"), QMessageBox::Cancel);
+       }
 }
 }
+
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -352,7 +428,8 @@ void MainWindow::on_pushButton_clicked()
 
     recompense r1;
    //r1.setnumRec(ui->suppRec->currentText().toInt());
-            r1.setnumRec(ui->lineEdit_11->text().toInt());
+          //  r1.setnumRec(ui->lineEdit_11->text().toInt());
+    r1.setnumRec(ui->lineEdit_11->text());
     if(r1.supprimer(r1.getnumRec()))
     {
         ui->tableRecompense->setModel(tmprecompense.afficher());
@@ -372,78 +449,79 @@ void MainWindow::on_modifierRecompense_clicked()
 {
 
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
-           player->setVolume(3000);
-           player->play();
+              player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+              player->setVolume(3000);
+              player->play();
 
 
-    //int numRec=ui->numRec_2->currentText().toInt();lineEdit_8
-          int numRec=ui->lineEdit_8->text().toInt();
-    // int numRec=ui->modifierRec->text().toInt();
-     QString nomRec=ui->nomRec->text();
-     ui->nomRec->setMaxLength(15);
-     int nbrEx=ui->nbrEx_2->text().toInt();
-     QString description=ui->lineEdit_6->text();
-      ui->lineEdit_6->setMaxLength(50);
-     int nbrPts=ui->nbrPts_2->text().toInt();
+       //int numRec=ui->numRec_2->currentText().toInt();lineEdit_8
+      //  int numRec=ui->lineEdit_8->text().toInt();
+        QString numRec=ui->lineEdit_8->text();
+       // int numRec=ui->modifierRec->text().toInt();
+        QString nomRec=ui->nomRec->text();
+        ui->nomRec->setMaxLength(20);
+        int nbrEx=ui->nbrEx_2->text().toInt();
+        QString description=ui->lineEdit_6->text();
+         ui->lineEdit_6->setMaxLength(20);
+        int nbrPts=ui->nbrPts_2->text().toInt();
 
-     recompense r(numRec,nomRec,nbrEx,description,nbrPts);
+        recompense r(numRec,nomRec,nbrEx,description,nbrPts);
 
-     if(numRec ==0)
+        if(numRec =="")
+              {
+                  QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("Veuillez taper un numéro différent de chaine vide"), QMessageBox::Ok);
+
+              }
+        else if(nomRec =="" )
+              {
+                  QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                              QObject::tr("Veuillez remplir le nom de la récompense (soit cinéma soit resto soit bande d'achat)"), QMessageBox::Ok);
+
+              }
+        else if(nbrEx <1 )
            {
                QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                           QObject::tr("Veuillez taper un numéro différent de 0"), QMessageBox::Ok);
+                           QObject::tr("Veuillez donnez un nombre d'exemplaires supérieur ou égal à 1"), QMessageBox::Ok);
 
            }
-     else if(nomRec =="" )
-           {
-               QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                           QObject::tr("Veuillez remplir le nom de la récompense (soit cinéma soit resto soit bande d'achat)"), QMessageBox::Ok);
+//           else if(nbrPts <50)
+//              {
+//                  QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+//                              QObject::tr("Le nombre de points est insuffisant pour avoir une récompense"), QMessageBox::Ok);
 
-           }
-     else if(nbrEx <1 )
+//              }
+        else {
+
+
+        if(r.modifier(numRec))
         {
-            QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                        QObject::tr("Veuillez donnez un nombre d'exemplaires supérieur ou égal à 1"), QMessageBox::Ok);
+            ui->tableRecompense->setModel(tmprecompense.afficher());
+                  QMessageBox::information(nullptr, QObject::tr("Modifier une Récompense"),
+                              QObject::tr("Récompense modifie.\n"), QMessageBox::Cancel);
 
         }
-        else if(nbrPts <50)
-           {
-               QMessageBox::critical(nullptr, QObject::tr("Erreur"),
-                           QObject::tr("Le nombre de points est insuffisant pour avoir une récompense"), QMessageBox::Ok);
-
-           }
-     else {
-
-
-     if(r.modifier(numRec))
-     {
-         ui->tableRecompense->setModel(tmprecompense.afficher());
-               QMessageBox::information(nullptr, QObject::tr("Modifier une Récompense"),
-                           QObject::tr("Récompense modifie.\n"), QMessageBox::Cancel);
-
-     }
-     else
-     {
-         QMessageBox::critical(nullptr, QObject::tr("Modifier une Récompense"),
-                           QObject::tr("Erreur !!!!!!!!\n"), QMessageBox::Cancel);
-     }
-     }
+        else
+        {
+            QMessageBox::critical(nullptr, QObject::tr("Modifier une Récompense"),
+                              QObject::tr("Erreur !!!!!!!!\n"), QMessageBox::Cancel);
+        }
+        }
 }
 
 void MainWindow::on_rechercheRecompense_clicked()
 {
 
     QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
-           player->setVolume(3000);
-           player->play();
+              player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+              player->setVolume(3000);
+              player->play();
 
 
 
-    QString recherche =ui->edit_recherche->text();
-    ui->tableRecompense->setModel(tmprecompense.chercher(recherche));
- ui->tableRecompense->setModel(tmprecompense.afficher());
+       QString recherche =ui->edit_recherche->text();
+       ui->tableRecompense->setModel(tmprecompense.chercher(recherche));
+ //   ui->tableRecompense->setModel(tmprecompense.afficher());
 
 }
 
@@ -455,7 +533,7 @@ void MainWindow::on_triRecomp_clicked()
            player->setVolume(3000);
            player->play();
 
-     ui->tableRecompense->setModel(tmprecompense.tri());
+      ui->tableRecompense->setModel(tmprecompense.tri());
 }
 void MainWindow::browse()
 {
@@ -593,10 +671,10 @@ void MainWindow::on_pushButton_7_clicked()
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
 
-    QMediaPlayer *player = new QMediaPlayer;
-           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
-           player->setVolume(3000);
-           player->play();
+//    QMediaPlayer *player = new QMediaPlayer;
+//           player->setMedia(QUrl::fromLocalFile("C:/Users/DELL/Desktop/nc.mp3"));
+//           player->setVolume(3000);
+//           player->play();
 
 
       mMediaPlayer->setVolume(value);
@@ -636,3 +714,91 @@ void MainWindow::on_tableRecompense_activated(const QModelIndex &index)
     ui->lineEdit_6->setText(ui->tableRecompense->model()->data(index.sibling(selected_row,4)).toString());
 
 }
+
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    int res;
+            statistiques w(this);
+            w.setWindowTitle("Statistiques des Recompenses");
+
+            res = w.exec();
+            qDebug() << res;
+            if (res == QDialog::Rejected)
+              return;
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    QString strStream;
+                    QTextStream out(&strStream);
+
+                    const int rowCount = ui->tableCitoyen->model()->rowCount();
+                    const int columnCount = ui->tableCitoyen->model()->columnCount();
+
+
+                    out <<  "<html>\n"
+                        "<head>\n"
+                        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                        <<  QString("<title>%1</title>\n").arg("strTitle")
+                        <<  "</head>\n"
+                        "<body bgcolor=#ffffff link=#5000A0>\n"
+
+                       //     "<align='right'> " << datefich << "</align>"
+                        "<center> <H1>Liste des commandes </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+                    // headers
+                    out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+                    for (int column = 0; column < columnCount; column++)
+                        if (!ui->tableCitoyen->isColumnHidden(column))
+                            out << QString("<th>%1</th>").arg(ui->tableCitoyen->model()->headerData(column, Qt::Horizontal).toString());
+                    out << "</tr></thead>\n";
+
+                    // data table
+                    for (int row = 0; row < rowCount; row++) {
+                        out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+                        for (int column = 0; column < columnCount; column++) {
+                            if (!ui->tableCitoyen->isColumnHidden(column)) {
+                                QString data = ui->tableCitoyen->model()->data(ui->tableCitoyen->model()->index(row, column)).toString().simplified();
+                                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                            }
+                        }
+                        out << "</tr>\n";
+                    }
+                    out <<  "</table> </center>\n"
+                        "</body>\n"
+                        "</html>\n";
+
+              QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+                if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+               QPrinter printer (QPrinter::PrinterResolution);
+                printer.setOutputFormat(QPrinter::PdfFormat);
+               printer.setPaperSize(QPrinter::A4);
+              printer.setOutputFileName(fileName);
+
+               QTextDocument doc;
+                doc.setHtml(strStream);
+                doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+                doc.print(&printer);
+}
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    //imprimer
+
+       QPrinter printer;
+
+       printer.setPrinterName("desiered printer name");
+
+     QPrintDialog dialog(&printer,this);
+
+       if(dialog.exec()== QDialog::Rejected)
+
+           return;
+}
+
+
+
+

@@ -9,11 +9,11 @@ Citoyen::Citoyen()
 {
 nbrPts=0;
 numCin="";
-numRec=0;
+numRec="";
 nom=""; prenom=""; daten=""; sexe=""; activite="";
 }
 
-Citoyen::Citoyen(QString numCin, QString nom, QString prenom, QString daten, QString sexe,QString activite,int nbrPts,int numRec)
+Citoyen::Citoyen(QString numCin, QString nom, QString prenom, QString daten, QString sexe,QString activite,int nbrPts,QString numRec)
 {
 this->numCin=numCin;
 this->nom=nom;
@@ -31,7 +31,7 @@ QString Citoyen::getdaten(){return daten;}
 QString Citoyen::getsexe(){return sexe;}
 QString Citoyen::getactivite(){return activite;}
 int Citoyen::getnbrPts(){return nbrPts;}
-int Citoyen::getnumRec(){return numRec;}
+QString Citoyen::getnumRec(){return numRec;}
 
 void Citoyen::setnumCin(QString numCin){this->numCin=numCin;}
 void Citoyen::setnom(QString nom){this->nom=nom;}
@@ -40,14 +40,14 @@ void Citoyen::setdaten(QString daten){this->daten=daten;}
 void Citoyen::setsexe(QString sexe){this->sexe=sexe;}
 void Citoyen::setactivite(QString activite){this->activite=activite;}
 void Citoyen::setnbrPts(int nbrPts){this->nbrPts=nbrPts;}
-void Citoyen::setnumRec(int numRec){this->numRec=numRec;}
+void Citoyen::setnumRec(QString numRec){this->numRec=numRec;}
 
 bool Citoyen::ajouter(){
    // bool test=false;
     QSqlQuery query;
     QString nbrPts_string= QString::number(nbrPts);
    // QString numCin_string= QString::number(numCin);
-    QString numRec_string= QString::number(numRec);
+   // QString numRec_string= QString::number(numRec);
          query.prepare("INSERT INTO Citoyen (numCin, nom, prenom, daten,sexe ,activite, nbrPts ,numRec) "
                        "VALUES (:numCin, :nom, :prenom, :daten, :sexe, :activite, :nbrPts, :numRec)");
          query.bindValue(":numCin", numCin);
@@ -57,7 +57,7 @@ bool Citoyen::ajouter(){
          query.bindValue(":sexe", sexe);
          query.bindValue(":activite", activite);
          query.bindValue(":nbrPts", nbrPts_string);
-         query.bindValue(":numRec",numRec_string);
+         query.bindValue(":numRec",numRec);
          return query.exec();
 
 }
@@ -94,22 +94,36 @@ bool Citoyen::modifier(QString numCin)
     //QString nbrPts= QString::number(nbrPts);
 
     QString nbrPts_string= QString::number(nbrPts);
-    QString numRec_string= QString::number(numRec);
+    //QString numRec_string= QString::number(numRec);
     // QString numCin_string= QString::number(numCin);
 
-    query.prepare("UPDATE Citoyen set nom='"+nom+"',prenom='"+prenom+"',date='"+daten+"',sexe='"+sexe+"',activite='"+activite+"',nbrPts='"+nbrPts_string+"',numRec='"+numRec_string+"' WHERE numCin LIKE '"+numCin+"' ");
+    query.prepare("UPDATE Citoyen set nom='"+nom+"',prenom='"+prenom+"',date='"+daten+"',sexe='"+sexe+"',activite='"+activite+"',nbrPts='"+nbrPts_string+"',numRec='"+numRec+"' WHERE numCin LIKE '"+numCin+"' ");
 
-    //query.bindValue(":numCin",numCin);
-  // query.bindValue(":nom",nom);
-  // query.bindValue(":prenom",prenom);
-   //query.bindValue(":daten",daten);
-  // query.bindValue(":sexe",sexe);
-  // query.bindValue(":activite",activite);
-  // query.bindValue(":nbrPts",nbrPts);
-  // query.bindValue(":numRec",numRec);
+
+
+
+    query.bindValue(":numCin",numCin);
+   query.bindValue(":nom",nom);
+   query.bindValue(":prenom",prenom);
+   query.bindValue(":daten",daten);
+   query.bindValue(":sexe",sexe);
+   query.bindValue(":activite",activite);
+   query.bindValue(":nbrPts",nbrPts);
+   query.bindValue(":numRec",numRec);
 
    return query.exec();
 }
+
+//bool Commande::modifier (int id_com,int num_l,QString nom_cat,QString nom_cl)
+//{
+//    QSqlQuery query;
+//    query.prepare("UPDATE COMMANDES SET id_com= :id_com,num_l= :num_l,nom_cat= :nom_cat,nom_cl = :nom_cl  WHERE id_com= :id_com ");
+//    query.bindValue(":id_com",id_com);
+//    query.bindValue(":num_l",num_l);
+//    query.bindValue(":nom_cat",nom_cat);
+//    query.bindValue(":nom_cl",nom_cl);
+//    return    query.exec();
+//}
 
 QSqlQueryModel *Citoyen::chercher(QString recherche)
 {
@@ -138,8 +152,7 @@ QSqlQueryModel * Citoyen::tri()
 QSqlQueryModel * Citoyen::affecter_recompense()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
-
-    model->setQuery("select numRec from recompense ");
+    model->setQuery("select numRec from recompense");
 
         return model;
 }
