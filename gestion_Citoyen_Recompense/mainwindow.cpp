@@ -54,7 +54,45 @@
 
 #include<QVariant>
 
+#include <QNetworkAccessManager>
 
+#include <QUrlQuery>
+
+#include <QNetworkReply>
+
+#include <QJsonValue>
+
+#include <QJsonValueRef>
+
+#include <QJsonDocument>
+
+#include <QJsonObject>
+
+#include <QJsonArray>
+
+#include <QString>
+
+#include <QDebug>
+
+#include <QtCore>
+
+#include <QtGui>
+
+#include <QDialog>
+
+#include <QModelIndex>
+
+#include <QGridLayout>
+
+#include <QApplication>
+
+#include <QIntValidator>
+
+#include <QDateTime>
+
+#include <QMediaPlayer>
+
+#include <QRadioButton>
 
 
 
@@ -404,7 +442,7 @@ QMediaPlayer *player = new QMediaPlayer;
                        QObject::tr("Ajout effectuer avec succés.\n" ), QMessageBox::Cancel);
 
            ui->numRec->setText("");
-           ui->nomRec_2->setText("");
+           //ui->comboBox_3->setText("");
                ui->nbrEx->setText("");
                    ui->lineEdit_5->setText("");
                    ui->lineEdit_4->setText("");
@@ -588,7 +626,7 @@ void MainWindow::on_pushButton_2_clicked()
            player->setVolume(3000);
            player->play();
 
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
     QString utilisateur=ui->lineEdit_12->text();
     QString mdp=ui->lineEdit_13->text();
     MainWindow w;
@@ -802,3 +840,95 @@ void MainWindow::on_pushButton_9_clicked()
 
 
 
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    //SMS
+
+    QNetworkAccessManager * manager = new QNetworkAccessManager(this);
+
+       QUrl url("https://AC8b263dd209c062a0d924254c7377c4a5:176d3c29991a42bfaf6b2617172c85c3@api.twilio.com/2010-04-01/Accounts/AC8b263dd209c062a0d924254c7377c4a5/Messages.json");
+      // QUrl url("https://AC2575f7c0523d5276ea916860e718aa64:44eb88472f8cd9cdc7e4900a5c05a756@api.twilio.com/2010-04-01/Accounts/AC2575f7c0523d5276ea916860e718aa64/Messages.json");
+       QNetworkRequest request(url);
+
+       request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+
+       QUrlQuery params;
+       params.addQueryItem("From", "+12056512887");
+      // params.addQueryItem("From", "+19726354313");
+       params.addQueryItem("To",ui->lineEdit_14->text() );//"+21628554027"
+       params.addQueryItem("Body", ui->textEdit->toPlainText());
+      // params.addQueryItem("Body", "test");
+
+       // etc
+
+       connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply*)));
+
+       manager->post(request, params.query().toUtf8());
+
+   }
+   void MainWindow::replyFinished(QNetworkReply* reply)
+   {
+       //QByteArray bts = rep->readAll();
+
+
+       QByteArray buffer = reply->readAll();
+       qDebug() << buffer;
+       QJsonDocument jsonDoc(QJsonDocument::fromJson(buffer));
+       QJsonObject jsonReply = jsonDoc.object();
+
+       QJsonObject response = jsonReply["response"].toObject();
+       QJsonArray  data     = jsonReply["data"].toArray();
+       qDebug() << data;
+       qDebug() << response;
+
+
+   }
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    QTableView *table;
+                       table = ui->tableCitoyen;
+                       QString filters("CSV files (*.csv);;All files (*.*)");
+                       QString defaultFilter("CSV files (*.csv)");
+                       QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
+                                          filters, &defaultFilter);
+                       QFile file(fileName);
+                       QAbstractItemModel *model =  table->model();
+                       if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+                           QTextStream data(&file);
+                           QStringList strList;
+                           for (int i = 0; i < model->columnCount(); i++) {
+                               if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
+                                   strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
+                               else
+                                   strList.append("");
+                           }
+                           data << strList.join(";") << "\n";
+                           for (int i = 0; i < model->rowCount(); i++) {
+                               strList.clear();
+                               for (int j = 0; j < model->columnCount(); j++) {
+                                   if (model->data(model->index(i, j)).toString().length() > 0)
+                                       strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
+                                   else
+                                       strList.append("");
+                               }
+                               data << strList.join(";") + "\n";
+                           }
+                           file.close();
+                           //QMessageBox::information(this,"Exporter To Excel","Exporter En Excel Avec Succées ");
+
+
+                       }
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}

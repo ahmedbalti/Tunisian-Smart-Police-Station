@@ -11,7 +11,14 @@
 #include <QFileDialog>
 #include <QMediaPlayer>
 #include <QSound>
+#include <QNetworkAccessManager>
+#include <QUrlQuery>
 
+#include <QtCore>
+#include <QtGui>
+#include <QDialog>
+#include <QMouseEvent>
+#include <QtWidgets/QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -73,12 +80,19 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_pushButton_10_clicked();
 
+    void replyFinished(QNetworkReply* reply);
 
+    void on_pushButton_11_clicked();
 
+    void on_pushButton_12_clicked();
 
+    void on_pushButton_13_clicked();
 
+    void on_pushButton_14_clicked();
 
+    void on_pushButton_15_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -311,7 +311,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
          </font>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="ajouterCit">
          <attribute name="title">
@@ -2947,173 +2947,6 @@ color:rgb(12, 166, 97);</string>
          <zorder>label_photo_10</zorder>
          <zorder>groupBox_3</zorder>
         </widget>
-        <widget class="QWidget" name="tab_2">
-         <attribute name="title">
-          <string>affectation </string>
-         </attribute>
-         <widget class="QLabel" name="label_photo_11">
-          <property name="geometry">
-           <rect>
-            <x>-1160</x>
-            <y>-80</y>
-            <width>2981</width>
-            <height>1081</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>../../smartshop2A18-gestion-employ-scong-s/imagesQT/colorful-macarons-wallpaper-3554x1999_53.jpg</pixmap>
-          </property>
-         </widget>
-         <widget class="QGroupBox" name="groupBox_4">
-          <property name="geometry">
-           <rect>
-            <x>90</x>
-            <y>70</y>
-            <width>691</width>
-            <height>431</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Rockwell</family>
-            <pointsize>15</pointsize>
-            <weight>50</weight>
-            <italic>false</italic>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color:rgb(255, 0, 0)</string>
-          </property>
-          <property name="title">
-           <string>Affectation Récompense</string>
-          </property>
-          <widget class="QLabel" name="label_32">
-           <property name="geometry">
-            <rect>
-             <x>168</x>
-             <y>318</y>
-             <width>2101</width>
-             <height>2211</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap>../../smartshop2A18-gestion-employ-scong-s/Documents/temp/macaron.jpg</pixmap>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_31">
-           <property name="geometry">
-            <rect>
-             <x>40</x>
-             <y>100</y>
-             <width>251</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Rockwell</family>
-             <pointsize>15</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color:rgb(212, 139, 97);</string>
-           </property>
-           <property name="text">
-            <string>numCin du citoyen</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_28">
-           <property name="geometry">
-            <rect>
-             <x>50</x>
-             <y>190</y>
-             <width>291</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Rockwell</family>
-             <pointsize>15</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color:rgb(212, 139, 97);</string>
-           </property>
-           <property name="text">
-            <string>numéro de récompense</string>
-           </property>
-          </widget>
-          <widget class="QComboBox" name="comboBoxRecomp">
-           <property name="geometry">
-            <rect>
-             <x>410</x>
-             <y>200</y>
-             <width>201</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="affecterbouton">
-           <property name="geometry">
-            <rect>
-             <x>220</x>
-             <y>310</y>
-             <width>221</width>
-             <height>71</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>Rockwell</family>
-             <pointsize>15</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 , stop:1 rgba(195, 0, 255, 255));
-color:rgb(212, 139, 97);</string>
-           </property>
-           <property name="text">
-            <string>affecter</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_7">
-           <property name="geometry">
-            <rect>
-             <x>402</x>
-             <y>110</y>
-             <width>211</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-         </widget>
-        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="ongletcong">
@@ -3142,7 +2975,7 @@ color:rgb(212, 139, 97);</string>
          <bool>true</bool>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>4</number>
         </property>
         <widget class="QWidget" name="ajoutercong">
          <attribute name="title">
@@ -3308,19 +3141,6 @@ color:rgb(103, 161, 255);
             <string notr="true">color: rgb(0, 0, 255);</string>
            </property>
           </widget>
-          <widget class="QLineEdit" name="nomRec_2">
-           <property name="geometry">
-            <rect>
-             <x>720</x>
-             <y>130</y>
-             <width>131</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(0, 0, 255);</string>
-           </property>
-          </widget>
           <widget class="QLineEdit" name="nbrEx">
            <property name="geometry">
             <rect>
@@ -3389,11 +3209,15 @@ color:rgb(103, 161, 255);
           <widget class="QComboBox" name="comboBox_3">
            <property name="geometry">
             <rect>
-             <x>372</x>
+             <x>720</x>
              <y>130</y>
              <width>131</width>
              <height>22</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:rgb(103, 161, 255);
+</string>
            </property>
            <item>
             <property name="text">
@@ -5547,7 +5371,7 @@ color:rgb(255, 255, 255);</string>
         </widget>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
-          <string>statistique</string>
+          <string>statistiques</string>
          </attribute>
          <widget class="QLabel" name="label_48">
           <property name="geometry">
@@ -5560,33 +5384,6 @@ color:rgb(255, 255, 255);</string>
           </property>
           <property name="text">
            <string/>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="geometry">
-           <rect>
-            <x>210</x>
-            <y>20</y>
-            <width>541</width>
-            <height>111</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Rockwell</family>
-            <pointsize>22</pointsize>
-            <weight>50</weight>
-            <italic>false</italic>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
-color:rgb(103, 161, 255);
-font: 22pt &quot;Rockwell&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Statistiques Des Récompenses </string>
           </property>
          </widget>
          <widget class="QLabel" name="label_50">
@@ -5605,9 +5402,69 @@ font: 22pt &quot;Rockwell&quot;;</string>
            <string/>
           </property>
          </widget>
+         <widget class="QGroupBox" name="groupBox_9">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>59</y>
+            <width>891</width>
+            <height>401</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 25pt &quot;Rockwell&quot;;
+color: rgb(79, 255, 244);</string>
+          </property>
+          <property name="title">
+           <string>Statistiques</string>
+          </property>
+          <widget class="QPushButton" name="pushButton_5">
+           <property name="geometry">
+            <rect>
+             <x>60</x>
+             <y>260</y>
+             <width>701</width>
+             <height>121</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Rockwell</family>
+             <pointsize>22</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
+color:rgb(103, 161, 255);
+font: 22pt &quot;Rockwell&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Statistiques Des Récompenses </string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_55">
+           <property name="geometry">
+            <rect>
+             <x>680</x>
+             <y>290</y>
+             <width>71</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-image: url(:/29.jpg);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </widget>
          <zorder>label_50</zorder>
          <zorder>label_48</zorder>
-         <zorder>pushButton_5</zorder>
+         <zorder>groupBox_9</zorder>
         </widget>
        </widget>
       </widget>
@@ -5958,6 +5815,134 @@ color:rgb(103, 161, 255);
        <zorder>label_photo_5</zorder>
        <zorder>layoutWidget</zorder>
       </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>SMS</string>
+       </attribute>
+       <widget class="QLabel" name="label_51">
+        <property name="geometry">
+         <rect>
+          <x>-10</x>
+          <y>-20</y>
+          <width>1131</width>
+          <height>581</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/25.jpg);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>931</width>
+          <height>471</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 250, 190);</string>
+        </property>
+        <property name="title">
+         <string>Envoyer   SMS</string>
+        </property>
+        <widget class="QLineEdit" name="lineEdit_14">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>100</y>
+           <width>251</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 85, 0);</string>
+         </property>
+        </widget>
+        <widget class="QTextEdit" name="textEdit">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>200</y>
+           <width>311</width>
+           <height>161</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 85, 0);</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_10">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>410</y>
+           <width>221</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 199, 102);
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgba(49, 49, 49), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));</string>
+         </property>
+         <property name="text">
+          <string>Envoyer</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_52">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>100</y>
+           <width>111</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 199, 102);</string>
+         </property>
+         <property name="text">
+          <string>numéro :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_53">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>240</y>
+           <width>151</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 199, 102);</string>
+         </property>
+         <property name="text">
+          <string>description :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_54">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>410</y>
+           <width>51</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-image: url(:/unnamed.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </widget>
+      </widget>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
         <string>Music</string>
@@ -6091,44 +6076,8 @@ color:rgb(255, 250, 190);</string>
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>PDF</string>
+        <string>Métiers</string>
        </attribute>
-       <widget class="QPushButton" name="pushButton_8">
-        <property name="geometry">
-         <rect>
-          <x>280</x>
-          <y>260</y>
-          <width>161</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
-color:rgb(103, 161, 255);
-</string>
-        </property>
-        <property name="text">
-         <string>PDF</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_9">
-        <property name="geometry">
-         <rect>
-          <x>530</x>
-          <y>260</y>
-          <width>161</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
-color:rgb(103, 161, 255);
-</string>
-        </property>
-        <property name="text">
-         <string>Impression</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_49">
         <property name="geometry">
          <rect>
@@ -6145,11 +6094,246 @@ color:rgb(103, 161, 255);
          <string/>
         </property>
        </widget>
-       <zorder>label_49</zorder>
-       <zorder>pushButton_8</zorder>
-       <zorder>pushButton_9</zorder>
+       <widget class="QPushButton" name="pushButton_13">
+        <property name="geometry">
+         <rect>
+          <x>780</x>
+          <y>480</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgb(255, 79, 73), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));
+color:rgb(255, 250, 190);</string>
+        </property>
+        <property name="text">
+         <string>Menu</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_56">
+        <property name="geometry">
+         <rect>
+          <x>900</x>
+          <y>480</y>
+          <width>51</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/28.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_8">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>100</y>
+          <width>641</width>
+          <height>321</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgba(101, 255, 158);
+font: 22pt &quot;Rockwell&quot;;</string>
+        </property>
+        <property name="title">
+         <string>Métiers</string>
+        </property>
+        <widget class="QPushButton" name="pushButton_9">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>130</y>
+           <width>161</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
+color:rgb(103, 161, 255);
+font: 15pt &quot;Rockwell&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>Impression</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>130</y>
+           <width>161</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
+color:rgb(103, 161, 255);
+font: 15pt &quot;Rockwell&quot;;</string>
+         </property>
+         <property name="text">
+          <string>PDF</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_11">
+         <property name="geometry">
+          <rect>
+           <x>430</x>
+           <y>130</y>
+           <width>171</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(101, 255, 158), stop:1 rgb(235, 255, 52));
+color:rgb(103, 161, 255);
+font: 15pt &quot;Rockwell&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Excel</string>
+         </property>
+        </widget>
+       </widget>
       </widget>
      </widget>
+    </widget>
+    <widget class="QWidget" name="page3">
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>170</y>
+        <width>221</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgb(49, 138, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));
+color:rgb(255, 250, 190);
+font: 15pt &quot;Rockwell&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion Citoyens</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_14">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>170</y>
+        <width>241</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgb(49, 138, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));
+color:rgb(255, 250, 190);
+font: 15pt &quot;Rockwell&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion Agents</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_15">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>170</y>
+        <width>221</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgb(49, 138, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));
+color:rgb(255, 250, 190);
+font: 15pt &quot;Rockwell&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion Crimes</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_16">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>350</y>
+        <width>291</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgb(49, 138, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));
+color:rgb(255, 250, 190);
+font: 14pt &quot;Rockwell&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion Service Criminel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_17">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>350</y>
+        <width>331</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgb(49, 138, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));
+color:rgb(255, 250, 190);
+font: 14pt &quot;Rockwell&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion Service Administratif</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_18">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>350</y>
+        <width>241</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919598 rgb(49, 138, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(235, 148, 61, 255));
+color:rgb(255, 250, 190);
+font: 15pt &quot;Rockwell&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion Travail</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-10</y>
+        <width>971</width>
+        <height>601</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/30.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>label_28</zorder>
+     <zorder>pushButton_12</zorder>
+     <zorder>pushButton_14</zorder>
+     <zorder>pushButton_15</zorder>
+     <zorder>pushButton_16</zorder>
+     <zorder>pushButton_17</zorder>
+     <zorder>pushButton_18</zorder>
     </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
