@@ -101,6 +101,7 @@ private:
     QStringList files;
     QSound *son;
     QMediaPlayer *mMediaPlayer;
+    QMediaPlayer musicAdd;
 
 
 };

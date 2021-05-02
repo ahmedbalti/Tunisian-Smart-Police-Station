@@ -214,6 +214,10 @@ else {
     if(C.ajouter())
       {
            ui->tableCitoyen->setModel(tmpcitoyen.afficher());
+
+           musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/ajout succe.mp3"));
+                           musicAdd.play();
+
            QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
                    notifyIcon->show();
                    notifyIcon->setIcon(QIcon("icone.png"));
@@ -266,6 +270,8 @@ void MainWindow::on_supp_clicked()
      c1.setnumCin(ui->lineEdit_3->text());
      if(c1.supprimer(c1.getnumCin()))
      {
+         musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/supp succe.mp3"));
+                         musicAdd.play();
           ui->tableCitoyen->setModel(tmpcitoyen.afficher());
          QMessageBox::information(nullptr, QObject::tr("Supprimer un citoyen"),
                      QObject::tr("Suppression avec succés.\n" ), QMessageBox::Cancel);
@@ -347,6 +353,9 @@ else {
 
 if(C.modifier(numCin))
 {
+    musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/modif succe.mp3"));
+                    musicAdd.play();
+
     ui->tableCitoyen->setModel(tmpcitoyen.afficher());
          QMessageBox::information(nullptr, QObject::tr("Modifier un Citoyen"),
                      QObject::tr("citoyen modifié.\n"), QMessageBox::Cancel);
@@ -437,6 +446,8 @@ QMediaPlayer *player = new QMediaPlayer;
        else {
 
        if(r.ajouter()) {
+           musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/ajout succe.mp3"));
+                           musicAdd.play();
             ui->tableRecompense->setModel(tmprecompense.afficher());
            QMessageBox::information(nullptr, QObject::tr("BIEN"),
                        QObject::tr("Ajout effectuer avec succés.\n" ), QMessageBox::Cancel);
@@ -470,6 +481,8 @@ void MainWindow::on_pushButton_clicked()
     r1.setnumRec(ui->lineEdit_11->text());
     if(r1.supprimer(r1.getnumRec()))
     {
+        musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/supp succe.mp3"));
+                        musicAdd.play();
         ui->tableRecompense->setModel(tmprecompense.afficher());
         QMessageBox::information(nullptr, QObject::tr("Supprimer une récompense"),
                     QObject::tr("Suppression avec succés.\n" ), QMessageBox::Cancel);
@@ -534,6 +547,8 @@ void MainWindow::on_modifierRecompense_clicked()
 
         if(r.modifier(numRec))
         {
+            musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/modif succe.mp3"));
+                            musicAdd.play();
             ui->tableRecompense->setModel(tmprecompense.afficher());
                   QMessageBox::information(nullptr, QObject::tr("Modifier une Récompense"),
                               QObject::tr("Récompense modifie.\n"), QMessageBox::Cancel);
@@ -845,18 +860,21 @@ void MainWindow::on_pushButton_10_clicked()
 {
     //SMS
 
+    musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/sms.mp3"));
+                    musicAdd.play();
+
     QNetworkAccessManager * manager = new QNetworkAccessManager(this);
 
-       QUrl url("https://AC8b263dd209c062a0d924254c7377c4a5:176d3c29991a42bfaf6b2617172c85c3@api.twilio.com/2010-04-01/Accounts/AC8b263dd209c062a0d924254c7377c4a5/Messages.json");
-      // QUrl url("https://AC2575f7c0523d5276ea916860e718aa64:44eb88472f8cd9cdc7e4900a5c05a756@api.twilio.com/2010-04-01/Accounts/AC2575f7c0523d5276ea916860e718aa64/Messages.json");
+   //    QUrl url("https://AC8b263dd209c062a0d924254c7377c4a5:176d3c29991a42bfaf6b2617172c85c3@api.twilio.com/2010-04-01/Accounts/AC8b263dd209c062a0d924254c7377c4a5/Messages.json");
+       QUrl url("https://AC2575f7c0523d5276ea916860e718aa64:44eb88472f8cd9cdc7e4900a5c05a756@api.twilio.com/2010-04-01/Accounts/AC2575f7c0523d5276ea916860e718aa64/Messages.json");
        QNetworkRequest request(url);
 
        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
 
        QUrlQuery params;
-       params.addQueryItem("From", "+12056512887");
-      // params.addQueryItem("From", "+19726354313");
+      // params.addQueryItem("From", "+12056512887");
+      params.addQueryItem("From", "+19726354313");
        params.addQueryItem("To",ui->lineEdit_14->text() );//"+21628554027"
        params.addQueryItem("Body", ui->textEdit->toPlainText());
       // params.addQueryItem("Body", "test");
@@ -866,6 +884,8 @@ void MainWindow::on_pushButton_10_clicked()
        connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply*)));
 
        manager->post(request, params.query().toUtf8());
+       //son sms
+
 
    }
    void MainWindow::replyFinished(QNetworkReply* reply)
