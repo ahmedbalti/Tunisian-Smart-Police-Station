@@ -23,6 +23,7 @@
 #include<agent.h>
 #include<conge.h>
 #include"etranger.h"
+#include"note.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -164,6 +165,8 @@ private slots:
 
     void on_pushButton_32_clicked();
 
+    void on_pushButton_36_clicked();
+
 private:
     Ui::MainWindow *ui;
     Citoyen tmpcitoyen;
@@ -178,7 +181,7 @@ private:
     QTimer timer;
     Agent tmpa;
     conge tmpb;
-
+    note *notepad;
 
 };
 #endif // MAINWINDOW_H

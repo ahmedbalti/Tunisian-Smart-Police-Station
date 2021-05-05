@@ -10,16 +10,26 @@
         <file>11.jpg</file>
         <file>13.jpg</file>
         <file>16.jpg</file>
-        <file>18.jpg</file>
         <file>17.jpg</file>
+        <file>18.jpg</file>
         <file>21.jpg</file>
         <file>23.jpg</file>
         <file>24.jpg</file>
         <file>25.jpg</file>
-        <file>unnamed.png</file>
+        <file>27.png</file>
         <file>28.png</file>
         <file>29.jpg</file>
         <file>30.jpg</file>
-        <file>../logo2.png</file>
+        <file>logo.png</file>
+        <file>Copy.png</file>
+        <file>Cut.png</file>
+        <file>supprimer.png</file>
+        <file>Undo.png</file>
+        <file>unnamed.png</file>
+        <file>Save.png</file>
+        <file>SaveAs.png</file>
+        <file>Redo.png</file>
+        <file>Open.png</file>
+        <file>Paste.png</file>
     </qresource>
 </RCC>

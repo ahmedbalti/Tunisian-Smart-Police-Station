@@ -1317,7 +1317,7 @@ void MainWindow::on_ajouter_etranger_clicked()
            player->play();
 
 
-    QString numPass=ui->numPass->text();
+    QString numpass=ui->numPass->text();
    ui->numPass->setMaxLength(8);
 
     QString nom=ui->nom_3->text();
@@ -1333,21 +1333,21 @@ void MainWindow::on_ajouter_etranger_clicked()
 
      QString adresse=ui->lineEdit_17->text();
 
-    etranger e(numPass,nom,prenom,nationalite,sexe,age,activite,adresse);
+    etranger e(numpass,nom,prenom,nationalite,sexe,age,activite,adresse);
 
-    if((prenom=="")&&(nom=="")&&(sexe=="")&&(numPass=="")&&(activite=="")&&(adresse==""))
+    if((prenom=="")&&(nom=="")&&(sexe=="")&&(numpass=="")&&(activite=="")&&(adresse==""))
        {
            QMessageBox::critical(nullptr, QObject::tr("Erreur"),
                        QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
         }
 
-    else if(numPass =="")
+    else if(numpass =="")
      {
          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
                      QObject::tr("Veuillez remplir le numéro de Passeport"), QMessageBox::Ok);
 
      }
-    else if (numPass.size()!=8)
+    else if (numpass.size()!=8)
     {
        QMessageBox::critical(nullptr, QObject::tr("WARNING"),
                    QObject::tr("le numéro de Cin doit se composer par 8 chiffres"), QMessageBox::Ok);
@@ -1444,7 +1444,7 @@ void MainWindow::on_modifer_3_clicked()
 
 
 
-    QString numPass=ui->lineEdit_22->text();
+    QString numpass=ui->lineEdit_22->text();
     QString nom=ui->nom_5->text();
     QString prenom=ui->prenom_5->text();
     QString sexe=ui->sexe->text();
@@ -1453,21 +1453,21 @@ void MainWindow::on_modifer_3_clicked()
     QString adresse=ui->lineEdit_24->text();
     QString nationalite=ui->nationalite_2->text();
 
-    etranger e (numPass,nom,prenom,nationalite,sexe,age,activite,adresse);
+    etranger e (numpass,nom,prenom,nationalite,sexe,age,activite,adresse);
 
-    if((prenom=="")&&(nom=="")&&(sexe=="")&&(numPass=="")&&(activite=="")&&(adresse==""))
+    if((prenom=="")&&(nom=="")&&(sexe=="")&&(numpass=="")&&(activite=="")&&(adresse==""))
        {
            QMessageBox::critical(nullptr, QObject::tr("Erreur"),
                        QObject::tr("Attention!! Les champs sont vides , Veuillez les remplir"), QMessageBox::Ok);
         }
 
-    else if(numPass =="")
+    else if(numpass =="")
      {
          QMessageBox::critical(nullptr, QObject::tr("Erreur"),
                      QObject::tr("Veuillez remplir le numéro de Passeport"), QMessageBox::Ok);
 
      }
-    else if (numPass.size()!=8)
+    else if (numpass.size()!=8)
     {
        QMessageBox::critical(nullptr, QObject::tr("WARNING"),
                    QObject::tr("le numéro de Cin doit se composer par 8 chiffres"), QMessageBox::Ok);
@@ -1506,7 +1506,7 @@ void MainWindow::on_modifer_3_clicked()
        }
 else {
 
-if(e.modifier3(numPass))
+if(e.modifier3(numpass))
 {
     musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/modif succe.mp3"));
                     musicAdd.play();
@@ -1535,8 +1535,8 @@ void MainWindow::on_supp_3_clicked()
 
     etranger e1;
 
-     e1.setnumPass(ui->lineEdit_25->text());
-     if(e1.supprimer3(e1.getnumPass()))
+     e1.setnumpass(ui->lineEdit_25->text());
+     if(e1.supprimer3(e1.getnumpass()))
      {
          musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/supp succe.mp3"));
                          musicAdd.play();
@@ -1576,4 +1576,10 @@ void MainWindow::on_pushButton_32_clicked()
 {
     QString link="http://www.google.com";
         QDesktopServices::openUrl(QUrl(link));
+}
+
+void MainWindow::on_pushButton_36_clicked()
+{
+    notepad=new note(this);
+        notepad->show();
 }

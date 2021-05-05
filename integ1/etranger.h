@@ -10,7 +10,7 @@ public:
     etranger();
     etranger(QString,QString,QString,QString,QString,int,QString,QString);
 
-    QString getnumPass();
+    QString getnumpass();
     QString getnom();
     QString getprenom();
     QString getnationalite();
@@ -24,7 +24,7 @@ public:
     bool supprimer3(QString);
     bool modifier3(QString);
 
-    void setnumPass(QString);
+    void setnumpass(QString);
     void setnom(QString);
     void setprenom(QString);
     void setnationalite(QString);
@@ -38,7 +38,7 @@ QSqlQueryModel * tri3();
 
  private:
     int age;
-    QString nom,prenom,nationalite,sexe,activite,numPass,adresse;
+    QString nom,prenom,nationalite,sexe,activite,numpass,adresse;
 };
 
 

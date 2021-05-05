@@ -1,6 +1,6 @@
 QT       += core gui sql network multimedia
 QT       += core gui charts
-QT += widgets
+QT += widgets serialport
 QT += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -20,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     agent.cpp \
+    arduino.cpp \
     cel.cpp \
     citoyen.cpp \
     conge.cpp \
@@ -28,12 +29,14 @@ SOURCES += \
     etranger.cpp \
     main.cpp \
     mainwindow.cpp \
+    note.cpp \
     recompense.cpp \
     smtp.cpp \
     stat.cpp
 
 HEADERS += \
     agent.h \
+    arduino.h \
     cel.h \
     citoyen.h \
     conge.h \
@@ -41,12 +44,14 @@ HEADERS += \
     detenu.h \
     etranger.h \
     mainwindow.h \
+    note.h \
     recompense.h \
     smtp.h \
     stat.h
 
 FORMS += \
     mainwindow.ui \
+    note.ui \
     stat.ui
 
 # Default rules for deployment.

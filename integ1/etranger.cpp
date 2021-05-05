@@ -8,14 +8,14 @@
 etranger::etranger()
 {
 age=0;
-numPass="";
+numpass="";
 nationalite="";
 nom=""; prenom=""; activite=""; sexe=""; adresse="";
 }
 
-etranger::etranger(QString numPass, QString nom, QString prenom, QString nationalite, QString sexe,int age,QString activite,QString adresse)
+etranger::etranger(QString numpass, QString nom, QString prenom, QString nationalite, QString sexe,int age,QString activite,QString adresse)
 {
-this->numPass=numPass;
+this->numpass=numpass;
 this->nom=nom;
 this->prenom=prenom;
 this->nationalite=nationalite;
@@ -24,7 +24,7 @@ this->age=age;
 this->activite=activite;
 this->adresse=adresse;
 }
-QString etranger::getnumPass(){return numPass;}
+QString etranger::getnumpass(){return numpass;}
 QString etranger::getnom(){return nom;}
 QString etranger::getprenom(){return prenom;}
 QString etranger::getnationalite(){return nationalite;}
@@ -33,7 +33,7 @@ int     etranger::getage(){return age;}
 QString etranger::getactivite(){return activite;}
 QString etranger::getadresse(){return adresse;}
 
-void etranger::setnumPass(QString numPass){this->numPass=numPass;}
+void etranger::setnumpass(QString numpass){this->numpass=numpass;}
 void etranger::setnom(QString nom){this->nom=nom;}
 void etranger::setprenom(QString prenom){this->prenom=prenom;}
 void etranger::setnationalite(QString nationalite){this->nationalite=nationalite;}
@@ -48,9 +48,9 @@ bool etranger::ajouter3(){
     QSqlQuery query;
     QString age_string= QString::number(age);
 
-         query.prepare("INSERT INTO etranger (numPass, nom, prenom, nationalite,sexe ,age, activite ,adresse) "
-                       "VALUES (:numPass, :nom, :prenom, :nationalite, :sexe, :age :activite, :adresse)");
-         query.bindValue(":numPass", numPass);
+         query.prepare("INSERT INTO etranger (numpass, nom, prenom, nationalite,sexe ,age, activite ,adresse) "
+                       "VALUES (:numpass, :nom, :prenom, :nationalite, :sexe, :age ,:activite, :adresse)");
+         query.bindValue(":numpass", numpass);
          query.bindValue(":nom", nom);
          query.bindValue(":prenom", prenom);
          query.bindValue(":nationalite", nationalite);
@@ -62,11 +62,11 @@ bool etranger::ajouter3(){
 
 }
 
-bool etranger::supprimer3(QString numPass)
+bool etranger::supprimer3(QString numpass)
 {
     QSqlQuery query;
-    query.prepare("Delete from etranger where numPass=:numPass ");
-     query.bindValue(0, numPass);
+    query.prepare("Delete from etranger where numpass=:numpass ");
+     query.bindValue(0, numpass);
 
      return query.exec();
 }
@@ -75,7 +75,7 @@ QSqlQueryModel* etranger::afficher3()
     QSqlQueryModel* model=new QSqlQueryModel();
 
          model->setQuery("SELECT * FROM etranger");
-         model->setHeaderData(0, Qt::Horizontal, QObject::tr("numPass"));
+         model->setHeaderData(0, Qt::Horizontal, QObject::tr("numpass"));
          model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
          model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
          model->setHeaderData(3, Qt::Horizontal, QObject::tr("nationalite"));
@@ -87,16 +87,16 @@ QSqlQueryModel* etranger::afficher3()
 
 }
 
-bool etranger::modifier3(QString numPass)
+bool etranger::modifier3(QString numpass)
 {
     QSqlQuery query;
 
     QString age_string= QString::number(age);
 
-    query.prepare("UPDATE etranger set nom='"+nom+"',prenom='"+prenom+"',nationalite='"+nationalite+"',sexe='"+sexe+"',age='"+age_string+"',activite='"+activite+"',adresse='"+adresse+"' WHERE numPass LIKE '"+numPass+"' ");
+    query.prepare("UPDATE etranger set nom='"+nom+"',prenom='"+prenom+"',nationalite='"+nationalite+"',sexe='"+sexe+"',age='"+age_string+"',activite='"+activite+"',adresse='"+adresse+"' WHERE numpass LIKE '"+numpass+"' ");
 
 
-    query.bindValue(":numCin",numPass);
+    query.bindValue(":numCin",numpass);
    query.bindValue(":nom",nom);
    query.bindValue(":prenom",prenom);
    query.bindValue(":nationalite",nationalite);
@@ -122,7 +122,7 @@ QSqlQueryModel * etranger::tri3()
     QSqlQueryModel * model= new QSqlQueryModel();
 
     model->setQuery("select * from etranger ORDER BY age DESC");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("numPass"));
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("numpass"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("nationalite"));
