@@ -35,6 +35,7 @@ public:
 
 QSqlQueryModel * chercher3(QString);
 QSqlQueryModel * tri3();
+QSqlQueryModel * rechercheDynamic(QString);
 
  private:
     int age;

@@ -33,11 +33,13 @@ public:
     QSqlQueryModel* afficher();
     //bool modifier(QString);
     bool modifier();
-    QSqlQueryModel * chercher(QString);
+   QSqlQueryModel * chercher(QString);
     QSqlQueryModel * tri();
     QSqlQueryModel * affecter_recompense();
 
     int  calculer(QString);
+    QSqlQueryModel * rechercheDynamic(QString);
+
 
 
 };

@@ -87,7 +87,7 @@ QSqlQueryModel* Citoyen::afficher()
 
 }
 
-bool Citoyen::modifier(QString numCin)
+bool Citoyen::modifier1(QString numCin)
 {
     QSqlQuery query;
 
@@ -97,33 +97,22 @@ bool Citoyen::modifier(QString numCin)
     //QString numRec_string= QString::number(numRec);
     // QString numCin_string= QString::number(numCin);
 
-    query.prepare("UPDATE Citoyen set nom='"+nom+"',prenom='"+prenom+"',date='"+daten+"',sexe='"+sexe+"',activite='"+activite+"',nbrPts='"+nbrPts_string+"',numRec='"+numRec+"' WHERE numCin LIKE '"+numCin+"' ");
+   // query.prepare("update Citoyen set nom='"+nom+"',prenom='"+prenom+"',date='"+daten+"',sexe='"+sexe+"',activite='"+activite+"',nbrPts='"+nbrPts_string+"',numRec='"+numRec+"' WHERE numCin LIKE '"+numCin+"' ");
+  query.prepare("update Citoyen set nom=:nom,prenom=:prenom,date=:daten,sexe=:sexe,activite=:activite,nbrPts=:nbrPts,numRec=:numRec where numCin=:numCin");
 
 
 
-
-    query.bindValue(":numCin",numCin);
+   query.bindValue(":numCin",numCin);
    query.bindValue(":nom",nom);
    query.bindValue(":prenom",prenom);
    query.bindValue(":daten",daten);
    query.bindValue(":sexe",sexe);
    query.bindValue(":activite",activite);
-   query.bindValue(":nbrPts",nbrPts);
+   query.bindValue(":nbrPts",nbrPts_string);
    query.bindValue(":numRec",numRec);
 
    return query.exec();
 }
-
-//bool Commande::modifier (int id_com,int num_l,QString nom_cat,QString nom_cl)
-//{
-//    QSqlQuery query;
-//    query.prepare("UPDATE COMMANDES SET id_com= :id_com,num_l= :num_l,nom_cat= :nom_cat,nom_cl = :nom_cl  WHERE id_com= :id_com ");
-//    query.bindValue(":id_com",id_com);
-//    query.bindValue(":num_l",num_l);
-//    query.bindValue(":nom_cat",nom_cat);
-//    query.bindValue(":nom_cl",nom_cl);
-//    return    query.exec();
-//}
 
 
 
@@ -159,6 +148,20 @@ QSqlQueryModel * Citoyen::affecter_recompense()
         return model;
 }
 
+QSqlQueryModel * Citoyen::rechercheDynamic(QString SearchName)
+{
 
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT * from Citoyen where numCin LIKE '"+SearchName+"%'OR nom like '"+SearchName+"%' OR prenom like '"+SearchName+"%'");
 
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("numCin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("daten"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("sexe"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("activite"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("nbrPts"));
+    model->setHeaderData(7, Qt::Horizontal, QObject::tr("numRec"));
+    return  model;
+    }
 

@@ -49,7 +49,7 @@ private slots:
 
     void on_modifer_clicked();
 
-    void on_pushButton_recherche_clicked();
+ void on_pushButton_recherche_clicked();
 
     void on_tri_clicked();
 
@@ -61,7 +61,7 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void on_rechercheRecompense_clicked();
+   void on_rechercheRecompense_clicked();
 
     void on_triRecomp_clicked();
 
@@ -166,6 +166,24 @@ private slots:
     void on_pushButton_32_clicked();
 
     void on_pushButton_36_clicked();
+
+    void on_pushButton_37_clicked();
+
+    void on_rechercheBTN_4_textChanged(const QString &arg1);
+
+    void on_rechercheBTN_3_textChanged(const QString &arg1);
+
+    void on_rechercheBTN_5_textChanged(const QString &arg1);
+
+    //void on_pushButton_recherche_3_clicked();
+
+
+
+    void on_pushButton_38_clicked();
+
+    void on_pushButton_39_clicked();
+
+    void on_edit_recherche_2_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

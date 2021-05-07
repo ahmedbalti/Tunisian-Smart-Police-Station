@@ -127,6 +127,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableCitoyen->setModel(tmpcitoyen.afficher());
     ui->tableRecompense->setModel(tmprecompense.afficher());
+     ui->tableEtranger->setModel(tmpetranger.afficher3());
   //  ui->comboBox_2->setModel(tmpcitoyen.affecter_recompense());
 
 
@@ -385,7 +386,7 @@ else if(daten=="")
    }
 else {
 
-if(C.modifier(numCin))
+if(C.modifier1(numCin))
 {
     musicAdd.setMedia(QUrl("C:/Users/DELL/Desktop/Tunisian Smart Police Station/gestion_Citoyen_Recompense/modif succe.mp3"));
                     musicAdd.play();
@@ -907,15 +908,14 @@ void MainWindow::on_pushButton_10_clicked()
     QNetworkAccessManager * manager = new QNetworkAccessManager(this);
 
    //    QUrl url("https://AC8b263dd209c062a0d924254c7377c4a5:176d3c29991a42bfaf6b2617172c85c3@api.twilio.com/2010-04-01/Accounts/AC8b263dd209c062a0d924254c7377c4a5/Messages.json");
-       QUrl url("https://ACc00e6b7adc58b96ec57beadf4007a3c9:d354dfcbc0dd38e7385b10c6e8650756@api.twilio.com/2010-04-01/Accounts/ACc00e6b7adc58b96ec57beadf4007a3c9/Messages.json");
+       QUrl url("https://ACb063271028feb478c9fe46adbb865141:f7f81b728031c95be57d0757adc11aa9@api.twilio.com/2010-04-01/Accounts/ACb063271028feb478c9fe46adbb865141/Messages.json");
        QNetworkRequest request(url);
 
        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
 
        QUrlQuery params;
-      // params.addQueryItem("From", "+12056512887");
-      params.addQueryItem("From", "+18186006846");
+      params.addQueryItem("From", "+14243960348");
        params.addQueryItem("To",ui->lineEdit_14->text() );//"+21628554027"
        params.addQueryItem("Body", ui->textEdit->toPlainText());
       // params.addQueryItem("Body", "test");
@@ -999,15 +999,33 @@ void MainWindow::on_pushButton_19_clicked()
     Detenu d(D.autoId(), ui->le_cin->text(), ui->le_noom->text(), ui->le_prenom->text(), ui->de_->text(), ui->cb_sexe->currentText(), ui->le_activite->text(), ui->te_->toPlainText(), ui->cb_cell->currentText().toInt());
     if(d.ajouter()) {
         refrech();
-        QMessageBox::information(nullptr, QObject::tr("Ajouter detenu"),
-                                 QObject::tr("ajout succeful. \n" "Click ok to exit"),QMessageBox::Ok);
 
-    }
-    else {
-        QMessageBox::critical(nullptr, QObject::tr("Ajouter cellule"),
-                                 QObject::tr("ajout failed. \n" "Click Cancel to exit"),QMessageBox::Cancel);
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+                notifyIcon->show();
+                notifyIcon->setIcon(QIcon("icone.png"));
 
-    }
+                notifyIcon->showMessage("GESTION détenu","détenu Ajouté",QSystemTrayIcon::Information,15000);
+
+            QMessageBox::information(nullptr, QObject::tr("Ajouter detenu"),
+                                  QObject::tr("Ajouter detenu./n"
+                                     "click cancel to exit."),QMessageBox::Cancel);
+            }
+
+            else
+                QMessageBox::critical(nullptr, QObject::tr("Ajouter detenu"),
+                                      QObject::tr("Erreur !./n"
+                                         "click cancel to exit."),QMessageBox::Cancel);
+
+
+//        QMessageBox::information(nullptr, QObject::tr("Ajouter detenu"),
+//                                 QObject::tr("ajout succeful. \n" "Click ok to exit"),QMessageBox::Ok);
+
+//    }
+//    else {
+//        QMessageBox::critical(nullptr, QObject::tr("Ajouter cellule"),
+//                                 QObject::tr("ajout failed. \n" "Click Cancel to exit"),QMessageBox::Cancel);
+
+//    }
 }
 
 void MainWindow::on_pushButton_20_clicked()
@@ -1032,15 +1050,33 @@ void MainWindow::on_pushButton_21_clicked()
     c.setId(ui->cb_id_d_2->currentText().toInt());
     if(c.supprimer()) {
         refrech();
-        QMessageBox::information(nullptr, QObject::tr("Supprimer detenu"),
-                                 QObject::tr("supprim succeful. \n" "Click ok to exit"),QMessageBox::Ok);
 
-    }
-    else {
-        QMessageBox::critical(nullptr, QObject::tr("Ajouter cellule"),
-                                 QObject::tr("supprim failed. \n" "Click Cancel to exit"),QMessageBox::Cancel);
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+                notifyIcon->show();
+                notifyIcon->setIcon(QIcon("icone.png"));
 
-    }
+                notifyIcon->showMessage("GESTION détenu","détenu Supprimé",QSystemTrayIcon::Information,15000);
+
+            QMessageBox::information(nullptr, QObject::tr("Supprimer detenu"),
+                                  QObject::tr("Supprimer detenu./n"
+                                     "click cancel to exit."),QMessageBox::Cancel);
+            }
+
+            else
+                QMessageBox::critical(nullptr, QObject::tr("Supprimer detenu"),
+                                      QObject::tr("Erreur !./n"
+                                         "click cancel to exit."),QMessageBox::Cancel);
+
+
+//        QMessageBox::information(nullptr, QObject::tr("Supprimer detenu"),
+//                                 QObject::tr("supprim succeful. \n" "Click ok to exit"),QMessageBox::Ok);
+
+//    }
+//    else {
+//        QMessageBox::critical(nullptr, QObject::tr("Ajouter cellule"),
+//                                 QObject::tr("supprim failed. \n" "Click Cancel to exit"),QMessageBox::Cancel);
+
+//    }
 }
 
 void MainWindow::on_pushButton_22_clicked()
@@ -1350,7 +1386,7 @@ void MainWindow::on_ajouter_etranger_clicked()
     else if (numpass.size()!=8)
     {
        QMessageBox::critical(nullptr, QObject::tr("WARNING"),
-                   QObject::tr("le numéro de Cin doit se composer par 8 chiffres"), QMessageBox::Ok);
+                   QObject::tr("le numéro de Passeport doit se composer par 8 chiffres"), QMessageBox::Ok);
 
     }
        else if(prenom =="")
@@ -1559,7 +1595,7 @@ void MainWindow::on_tableEtranger_activated(const QModelIndex &index)
 
 
     QString selected_numPass=ui->tableEtranger->model()->data(index.sibling(selected_row,0)).toString();
-     ui->lineEdit_22->setText(ui->tableEtranger->model()->data(index.sibling(selected_row,0)).toString());
+     ui->lineEdit_25->setText(ui->tableEtranger->model()->data(index.sibling(selected_row,0)).toString());
 
     ui->lineEdit_22->setText(selected_numPass);
     ui->nom_5->setText(ui->tableEtranger->model()->data(index.sibling(selected_row,1)).toString());
@@ -1582,4 +1618,65 @@ void MainWindow::on_pushButton_36_clicked()
 {
     notepad=new note(this);
         notepad->show();
+}
+
+void MainWindow::on_pushButton_37_clicked()
+{
+    QPrinter printer;
+
+    printer.setPrinterName("desiered printer name");
+
+  QPrintDialog dialog(&printer,this);
+
+    if(dialog.exec()== QDialog::Rejected)
+
+        return;
+}
+
+void MainWindow::on_rechercheBTN_4_textChanged(const QString &arg1)
+{
+      ui->tableCitoyen->setModel(tmpcitoyen.rechercheDynamic(arg1));
+}
+
+void MainWindow::on_rechercheBTN_5_textChanged(const QString &arg1)
+{
+    ui->tableEtranger->setModel(tmpetranger.rechercheDynamic(arg1));
+
+}
+
+
+void MainWindow::on_pushButton_38_clicked()
+{
+    QFile file("C:/Users/DELL/Desktop/balti2/myfile.txt");
+
+       if (!file.open (QFile::WriteOnly | QFile::Text)) {
+               QMessageBox::information(this,"title","ficher non trouvé");}
+       QTextStream out (&file);
+       QString text = ui->plainTextEdit->toPlainText();
+       out << text ;
+       file.flush();
+       file.close();
+}
+
+void MainWindow::on_pushButton_39_clicked()
+{
+    QString filter = "All File (*.*);; XML File (*.xml)";
+            QString file_name =QFileDialog::getOpenFileName(this,"open a file ","C://",filter);
+            QFile file(file_name);
+
+
+      if (!file.open (QFile::ReadOnly | QFile::Text)) {
+              QMessageBox::information(this,"title","file non trouvé");}
+      QTextStream in (&file);
+      QString text = in.readAll();
+      ui->plainTextEdit->setPlainText(text);
+
+
+      file.close();
+}
+
+void MainWindow::on_edit_recherche_2_textChanged(const QString &arg1)
+{
+    ui->tableRecompense->setModel(tmprecompense.rechercheDynamic(arg1));
+
 }
