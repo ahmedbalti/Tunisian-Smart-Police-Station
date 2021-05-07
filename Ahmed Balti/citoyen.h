@@ -21,7 +21,7 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(QString);
-    bool modifier(QString);
+    bool modifier1(QString);
 
     void setnumCin(QString);
     void setnom(QString);
@@ -35,6 +35,8 @@ public:
 QSqlQueryModel * chercher(QString);
 QSqlQueryModel * affecter_recompense();
 QSqlQueryModel * tri();
+    QSqlQueryModel * rechercheDynamic(QString);
+
 
 //bool affecter(QString);
  private:

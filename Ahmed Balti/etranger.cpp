@@ -134,3 +134,20 @@ QSqlQueryModel * etranger::tri3()
         return model;
 }
 
+QSqlQueryModel * etranger::rechercheDynamic(QString SearchName)
+{
+
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT * from etranger where numPass LIKE '"+SearchName+"%'OR nom like '"+SearchName+"%' OR prenom like '"+SearchName+"%'");
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("numpass"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("nationalite"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("sexe"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("age"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("activite"));
+    model->setHeaderData(7, Qt::Horizontal, QObject::tr("adresse"));
+    return  model;
+    }
+

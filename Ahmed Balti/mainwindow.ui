@@ -168,7 +168,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
 font: 15pt &quot;Rockwell&quot;;</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="ongletCit">
        <attribute name="title">
@@ -311,7 +311,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
          </font>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="ajouterCit">
          <attribute name="title">
@@ -1580,7 +1580,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919
          <widget class="QPushButton" name="tri">
           <property name="geometry">
            <rect>
-            <x>330</x>
+            <x>50</x>
             <y>420</y>
             <width>251</width>
             <height>61</height>
@@ -2444,12 +2444,41 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919
            <string/>
           </property>
          </widget>
+         <widget class="QLineEdit" name="rechercheBTN_4">
+          <property name="geometry">
+           <rect>
+            <x>720</x>
+            <y>420</y>
+            <width>191</width>
+            <height>61</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_154">
+          <property name="geometry">
+           <rect>
+            <x>420</x>
+            <y>430</y>
+            <width>281</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:rgb(103, 161, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Recherche Dynamique :</string>
+          </property>
+         </widget>
          <zorder>label_39</zorder>
          <zorder>label_photo_8</zorder>
          <zorder>pushButton_recherche</zorder>
          <zorder>tri</zorder>
          <zorder>tableCitoyen</zorder>
          <zorder>rechercheBTN</zorder>
+         <zorder>rechercheBTN_4</zorder>
+         <zorder>label_154</zorder>
         </widget>
         <widget class="QWidget" name="modifieremp">
          <attribute name="title">
@@ -2975,7 +3004,7 @@ color:rgb(12, 166, 97);</string>
          <bool>true</bool>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="ajoutercong">
          <attribute name="title">
@@ -4110,7 +4139,7 @@ color:rgb(103, 161, 255);
          <widget class="QPushButton" name="triRecomp">
           <property name="geometry">
            <rect>
-            <x>350</x>
+            <x>90</x>
             <y>410</y>
             <width>231</width>
             <height>51</height>
@@ -4974,12 +5003,41 @@ color:rgb(103, 161, 255);
            <string/>
           </property>
          </widget>
+         <widget class="QLabel" name="label_156">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>410</y>
+            <width>281</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:rgb(103, 161, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Recherche Dynamique :</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="edit_recherche_2">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>410</y>
+            <width>171</width>
+            <height>51</height>
+           </rect>
+          </property>
+         </widget>
          <zorder>label_44</zorder>
          <zorder>label_photo_9</zorder>
          <zorder>rechercheRecompense</zorder>
          <zorder>triRecomp</zorder>
          <zorder>edit_recherche</zorder>
          <zorder>tableRecompense</zorder>
+         <zorder>label_156</zorder>
+         <zorder>edit_recherche_2</zorder>
         </widget>
         <widget class="QWidget" name="modifiercong">
          <attribute name="title">
@@ -5609,7 +5667,7 @@ font: 22pt &quot;Rockwell&quot;;</string>
          </font>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="ajouterCit_2">
          <attribute name="title">
@@ -8558,7 +8616,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919
          <widget class="QLineEdit" name="rechercheBTN_3">
           <property name="geometry">
            <rect>
-            <x>700</x>
+            <x>730</x>
             <y>20</y>
             <width>191</width>
             <height>61</height>
@@ -8578,7 +8636,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919
          <widget class="QPushButton" name="tri_3">
           <property name="geometry">
            <rect>
-            <x>340</x>
+            <x>50</x>
             <y>410</y>
             <width>251</width>
             <height>61</height>
@@ -9404,6 +9462,33 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919
             <width>100</width>
             <height>121</height>
            </size>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="rechercheBTN_5">
+          <property name="geometry">
+           <rect>
+            <x>730</x>
+            <y>410</y>
+            <width>191</width>
+            <height>61</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_153">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>420</y>
+            <width>281</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:rgb(103, 161, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Recherche Dynamique :</string>
           </property>
          </widget>
         </widget>
@@ -11249,7 +11334,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_7">
          <attribute name="title">
@@ -11672,6 +11757,19 @@ font: 15pt &quot;Rockwell&quot;;</string>
            <string/>
           </property>
          </widget>
+         <widget class="QPushButton" name="pushButton_37">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>50</y>
+            <width>141</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Imprimer</string>
+          </property>
+         </widget>
          <zorder>label_87</zorder>
          <zorder>tableView_2</zorder>
          <zorder>cb_sort_2</zorder>
@@ -11679,6 +11777,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
          <zorder>label_63</zorder>
          <zorder>l_total</zorder>
          <zorder>clock</zorder>
+         <zorder>pushButton_37</zorder>
         </widget>
         <widget class="QWidget" name="tab_9">
          <attribute name="title">
@@ -12122,7 +12221,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="tab_12">
          <attribute name="title">
@@ -12647,7 +12746,7 @@ color:rgb(255, 250, 190);</string>
 font: 15pt &quot;Rockwell&quot;;</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -12663,7 +12762,7 @@ font: 15pt &quot;Rockwell&quot;;</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_17">
          <attribute name="title">
@@ -13205,8 +13304,11 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0.919
           <height>531</height>
          </rect>
         </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::NoContextMenu</enum>
+        </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_20">
          <attribute name="title">
@@ -13558,6 +13660,69 @@ color:rgb(255, 250, 190);</string>
          <zorder>pushButton_30</zorder>
          <zorder>pushButton_31</zorder>
          <zorder>label_106</zorder>
+        </widget>
+        <widget class="QWidget" name="tab_24">
+         <attribute name="title">
+          <string>Export/Import</string>
+         </attribute>
+         <widget class="QLabel" name="label_155">
+          <property name="geometry">
+           <rect>
+            <x>-240</x>
+            <y>-160</y>
+            <width>1221</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/21.jpg);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPlainTextEdit" name="plainTextEdit">
+          <property name="geometry">
+           <rect>
+            <x>183</x>
+            <y>56</y>
+            <width>561</width>
+            <height>311</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_38">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>410</y>
+            <width>111</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:rgb(152, 174, 255)</string>
+          </property>
+          <property name="text">
+           <string>Ecrire</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_39">
+          <property name="geometry">
+           <rect>
+            <x>530</x>
+            <y>410</y>
+            <width>121</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:rgb(152, 174, 255)</string>
+          </property>
+          <property name="text">
+           <string>Lire</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
